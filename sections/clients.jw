@@ -1,0 +1,73 @@
+<section class="padding-3 client-wrapper {{ section.colors ? section.colors }}" id="{{section.id}}">
+<div class="container-fluid">
+    {% if listitem %}
+    <div class="row client-wraps w-100 m-auto">
+        {% for item in listitem %}
+        <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+            <div class="client-in">
+            {% if item.item_media %}
+                <figure>
+                <img src="{{ item.item_media }}" alt="{{ item.item_media.alt }}">
+                </figure>
+            {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</section>
+
+  <script>
+
+    try {
+ 
+  $('#{{section.id}} .client-wraps').slick({
+    pauseOnHover: false,
+    cssEase: 'linear',
+    autoplay: {{ section.slider.desktopAutoplay?section.slider.desktopAutoplay:'true'}},
+    autoplaySpeed: {{ section.slider.desktopAutoplaySpeed?section.slider.desktopAutoplaySpeed:'2000'}},
+    slidesToShow: {{ section.slider.desktopSlidesToShow?section.slider.desktopSlidesToShow:'5'}},
+    slidesToScroll: {{ section.slider.desktopSlidesToScroll?section.slider.desktopSlidesToScroll:'1'}},
+    speed: {{ section.slider.desktopSlideSpeed?section.slider.desktopSlideSpeed:'300'}}, 
+    arrows: {{ section.slider.desktopArrows?section.slider.desktopArrows:'true'}},
+    dots: {{ section.slider.desktopDots?section.slider.desktopDots:'true'}},
+    infinite: {{ section.slider.desktopInfinite?section.slider.desktopInfinite:'true'}},
+
+  responsive: [
+       {
+        breakpoint: 992,
+        settings: {
+            autoplay: {{ section.slider.tabletAutoplay?section.slider.tabletAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.tabletAutoplaySpeed?section.slider.tabletAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.tabletSlidesToShow?section.slider.tabletSlidesToShow:'3'}},
+            slidesToScroll: {{ section.slider.tabletSlidesToScroll?section.slider.tabletSlidesToScroll:'2'}},
+            speed: {{ section.slider.tabletSlideSpeed?section.slider.tabletSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.tabletArrows?section.slider.tabletArrows:'true'}},
+            dots: {{ section.slider.tabletDots?section.slider.tabletDots:'true'}},
+            infinite: {{ section.slider.tabletInfinite?section.slider.tabletInfinite:'true'}},
+        }
+     },
+      {
+        breakpoint: 700,
+        settings: {
+          	autoplay: {{ section.slider.mobileAutoplay?section.slider.mobileAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.mobileAutoplaySpeed?section.slider.mobileAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.mobileSlidesToShow?section.slider.mobileSlidesToShow:'1'}},
+            slidesToScroll: {{ section.slider.mobileSlidesToScroll?section.slider.mobileSlidesToScroll:'1'}},
+            speed: {{ section.slider.mobileSlideSpeed?section.slider.mobileSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.mobileArrows?section.slider.mobileArrows:'true'}},
+            dots: {{ section.slider.mobileDots?section.slider.mobileDots:'true'}},
+            infinite: {{ section.slider.mobileInfinite?section.slider.mobileInfinite:'true'}},
+        }
+      }
+
+      ]
+});
+
+
+}
+catch(err) {
+  console.log(err.message);
+}
+    </script>

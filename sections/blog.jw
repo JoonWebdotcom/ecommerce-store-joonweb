@@ -1,0 +1,142 @@
+<section class="padding-3 blog-feed blog-list">
+  <div class="container-fluid">
+
+    {% if blog.items %}
+
+    {% if title %}
+      <div class="top-row col-lg-5 m-auto text-center mb-3">
+        <div class="fontStyle3 com-title">{{ title }}</div>
+      </div>
+    {% endif %}
+    <div class="row blogList justify-content-between">
+      <div class="blog-lft row col-lg-3 col-md-4 mt-4 flex-grow-1 d-none">
+        <ul class="sidebar">
+          <li class="Listing">
+            <div class="topbar">
+              <div class="fontStyle6 ">Recent Articles</div>
+            </div>
+            <div class="sidebarCont d-flex align-items-center mb-4">
+              <figure>
+                <img src="assets/creative-toy.png" alt="">
+              </figure>
+              <div class="sidebar-data">
+                <div class="fontStyle8 opacity1 liTitle">The best color awaits your beautiful</div>
+              </div>
+            </div>
+            <div class="sidebarCont d-flex align-items-center mb-4">
+              <figure>
+                <img src="assets/Underwater-Small-Column-Plush-Toy.png" alt="">
+              </figure>
+              <div class="sidebar-data">
+                <div class="fontStyle8 opacity1 liTitle">The best color awaits your beautiful</div>
+              </div>
+            </div>
+            <div class="sidebarCont d-flex align-items-center mb-4">
+              <figure>
+                <img src="assets/Turtle-Stuffed-Animal.png" alt="">
+              </figure>
+              <div class="sidebar-data">
+                <div class="fontStyle8 opacity1 liTitle">The best color awaits your beautiful</div>
+              </div>
+            </div>
+            <div class="sidebarCont d-flex align-items-center mb-4">
+              <figure>
+                <img src="assets/Rex-De-Toy.png" alt="">
+              </figure>
+              <div class="sidebar-data">
+                <div class="fontStyle8 opacity1 liTitle">The best color awaits your beautiful</div>
+              </div>
+            </div>
+          </li>
+          <li class="Listing">
+            <div class="topbar">
+              <div class="fontStyle6 ">Tags</div>
+            </div>
+            <div class="blogTag">
+              <ul class="blog_tags">
+                <li>
+                  <a href="#">Beauty</a>
+                </li>
+                <li>
+                  <a href="#">Makeup</a>
+                </li>
+                <li>
+                  <a href="#">Face Wash</a>
+                </li>
+                <li>
+                  <a href="#">Skin Care</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="blogWrappers d-flex flex-wrap col-lg-9 col-md-8 flex-grow-1">
+
+        {% set dataLimit = limit?limit:'12' %}
+          {% set dataTotal = blog.items | length %}
+          {% set blogpagination = blog.items|paginate(dataLimit, (query.page ? query.page : 1)) %}
+          
+          {% for itemkey, blog in blogpagination %}
+
+              <div class="col-lg-6 col-md-6 col-16 blgwrp mt-4 _smart_list_link">
+                <div class="blg-li gap-3">
+                  <figure>
+                    <a href="{{ blog.url }}"><img src="{{ blog.img }}" alt="{{ blog.img.alt }}" 
+                      onerror="this.src='https://static.joonsite.com/storage/2989/media/blog.jpg'"></a>
+                  </figure>
+                  <div class="blogCont mt-3">
+                    <div class="blogFeeddata mt-2">
+                      <div class="fontStyle4 mb-3 blogTitle word_limit_2">{{ blog.title }}</div>
+                      {% if blog.description %}<div class="blog-para fontStyle5 word_limit_3 mb-3">{{ blog.description }}</div>{% endif %}
+
+                      <div class="blog-create-main fontStyle8 opacity1 d-flex gap-3 mb-3">
+                        <div class="blog-date d-flex gap-1 align-items-center">
+                          <svg class="svg-icon" style="width: 1rem; height: 1rem;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                           viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M511.199775 200.744024c0.169869 0 0.337691 0.011256 0.506537 0.013303 0.169869-0.002047 0.336668-0.013303 0.506537-0.013303L511.199775 200.744024z"  /><path d="M512.212848 557.877887c-0.169869 0-0.337691-0.011256-0.506537-0.013303-0.169869 0.002047-0.336668 0.013303-0.506537 0.013303L512.212848 557.877887z"  /><path d="M881.777835 511.51086c0 0.106424-0.007163 0.211824-0.008186 0.318248 0.001023 0.106424 0.008186 0.211824 0.008186 0.318248L881.777835 511.51086z"  /><path d="M855.717296 486.08784 552.647769 486.08784 552.647769 242.192018c0-22.626323-18.376533-41.159422-40.941458-41.434691-22.563902 0.275269-40.941458 18.808368-40.941458 41.434691l0 274.237875c0 22.626323 18.376533 41.159422 40.941458 41.434691 14.876826-0.181125 27.928073-8.296967 35.097356-20.294209l308.913629 0c14.226003 0 25.87839-11.55415 26.051329-25.741267C881.596709 497.641991 869.943298 486.08784 855.717296 486.08784z"  /><path d="M511.706311 63.525825c-247.512187 0-448.16002 200.647833-448.16002 448.16002 0 57.141418 10.701736 111.780853 30.197766 162.034397l53.956889-21.051455c-17.165961-44.36544-26.140357-91.983971-26.140357-140.982942 0-104.211457 40.582277-202.185862 114.270557-275.874141 73.689303-73.689303 171.662685-114.270557 275.875165-114.270557 104.211457 0 202.184839 40.582277 275.874141 114.270557 73.689303 73.688279 114.27158 171.662685 114.27158 275.874141 0 104.211457-40.582277 202.185862-114.27158 275.875165S615.917768 901.831566 511.707334 901.831566c-65.813938 0-129.138172-16.192797-185.430246-46.682205L298.860668 906.168338c63.319118 34.235732 135.811152 53.676503 212.845643 53.676503 247.512187 0 448.16002-200.647833 448.16002-448.16002S759.218498 63.525825 511.706311 63.525825z"  /></svg>
+                          <span>{{ blog.created | date("d-m-y") }}</span>
+                        </div>
+                        <div class="sprtr"></div>
+                        <div class="author d-flex gap-1 align-items-center">
+                          <svg class="svg-icon" style="width: 1.5rem; height: 1.5rem;vertical-align: middle;fill: currentColor;overflow: hidden;" 
+                          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512 880a368 368 0 1 1 368-368 368 368 0 0 1-368 368z m0-704a336 336 0 1 0 336 336 336 336 0 0 0-336-336z m154.208 586.304a63.6 63.6 0 0 0-46.768-89.152 204.8 204.8 0 0 0 22.64-26.624A95.792 95.792 0 0 1 704 736c0 1.312-0.336 2.512-0.384 3.808a332.912 332.912 0 0 1-37.408 22.496zM512 688c-79.536 0-144-85.968-144-192s64.464-192 144-192 144 85.968 144 192-64.464 192-144 192z m0-352c-61.856 0-112 71.632-112 160s50.144 160 112 160 112-71.632 112-160-50.144-160-112-160z m-107.424 337.152a63.6 63.6 0 0 0-46.784 89.152 332.912 332.912 0 0 1-37.408-22.496c0-1.296-0.384-2.496-0.384-3.808a95.792 95.792 0 0 1 61.936-89.472 202.256 202.256 0 0 0 22.64 26.624z" fill="#333333" /></svg>
+                          <span>{{ blog.author }}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {% endfor %}
+
+            {% import "components/pagination.jw" as pagination %}
+            {% set total_page =  ((dataTotal - 1) / dataLimit) + 1 %}
+            {{ pagination.pagination( total_page | ceil , ( query.page ?query.page : 1 )) }}
+    
+  
+   
+      </div>
+
+      {% else %}
+      	<div class="top-box text-center py-4">
+          <div class="svg-cart mb-3">
+          	<svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM9 11.5C9 10.1193 10.1193 9 11.5 9C12.8807 9 14 10.1193 14 11.5C14 12.8807 12.8807 14 11.5 14C10.1193 14 9 12.8807 9 11.5ZM11.5 7C9.01472 7 7 9.01472 7 11.5C7 13.9853 9.01472 16 11.5 16C12.3805 16 13.202 15.7471 13.8957 15.31L15.2929 16.7071C15.6834 17.0976 16.3166 17.0976 16.7071 16.7071C17.0976 16.3166 17.0976 15.6834 16.7071 15.2929L15.31 13.8957C15.7471 13.202 16 12.3805 16 11.5C16 9.01472 13.9853 7 11.5 7Z" fill="var(--color1)"/>
+</svg>
+          </div>
+          	<div class="fontStyle2 sub mb-2">No blog found!</div>
+          	<div class="para fontStyle5">Looks like you haven't added any blogs.</div>
+      	</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+<style>
+  body{overflow: unset;}
+</style>

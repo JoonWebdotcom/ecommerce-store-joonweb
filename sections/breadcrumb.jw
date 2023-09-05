@@ -1,0 +1,23 @@
+{% set breadcrumbs = breadcrumb() %}
+<div class="breadcrumbs-area position-relative {{ section.colors ? section.colors }}" style="{% if media %}background: url('{{ media }}') no-repeat scroll center center/cover;{% endif %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="breadcrumb-content position-relative section-content">
+                    {% if title %}<div class="title-3 fontStyle2">{{ title }}</div>{% endif %}
+                    <ul class="fontStyle5">
+                        {% for breadcrumb in breadcrumbs %}
+                            <li class="fontStyle4">
+                                {% if breadcrumb.url %}
+                                <a href="{{ breadcrumb.url }}" class="">{{ breadcrumb.title }}</a>
+                            {% else %}
+                                {{ breadcrumb.title }}
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

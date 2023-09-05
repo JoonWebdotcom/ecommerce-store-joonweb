@@ -1,0 +1,291 @@
+{% set logo_size_classes = {
+    "xs": "see-xsm-logo",
+    "s": "see-sm-logo",
+    "m": "see-medium-logo",
+    "l": "see-large-logo",
+    "xl": "see-extra-large-logo"
+  } %}
+  
+  {% set logo_class = logo_size_classes[Property.logo.size] ?? '' %}
+
+
+<footer class="Footer {{ section.colors ? section.colors:'background2' }}" id="{{section.id}}">
+    <div class="container-fluid">
+      <div class="row">
+        {% if form %}
+            <div class="foot-top row m-auto">
+            <div class="subscribe-form d-flex align-items-center col-lg-7">
+                <div class="form-title fontStyle4 fw-bolder">Sign up to Newsletter</div>
+                <div class="form col-lg-6 m-auto fontStyle5">
+                    {{ form }}
+                </div>
+            </div>
+            </div>
+        {% endif %}
+
+        <div class="foot-body row m-auto">
+          <div class="column col-lg-3 col-md-4 col-sm-6 col-12 flex-grow-1 Flogo">
+
+            {% if logo or title or subtitle %}
+                <div class="logo-main flex-grow-1">
+                <a href="{{ root.url }}" alt="" class="">
+                    {% if logo %}<figure class="foot-logo {{logo_class ? logo_class : 'default-size'}}"><img src="{{ logo }}" alt="{{ logo.alt }}"></figure>{% endif %}
+                    {% if title %}<div class="logo tagline fontStyle4 {{logo_class ? logo_class : 'default-size'}}">{{ title }}</div>{% endif %}
+                </a>
+                {% if subtitle %}
+                    <div class="fontStyle8 opacity1 para mt-3">{{ subtitle }}</div>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            {% if address %}
+                {% for i, item in site.address %}
+                    {% if Property.address.value[i] != 'no' %}
+                        <div class="address fontStyle8 opacity1 mt-3">
+                            {{ item.data }} 
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </div>
+
+          {% if section.columns %}
+            {% for items in section.columns %}
+                <div class="column col-lg-3 col-md-4 col-sm-6 col-12 flex-grow-1">
+                  <div class="fontStyle7 foot-click">Quick Links <span></span></div>
+                    <ul class="fontStyle5 mt-lg-3 footer-shw">
+                        {% if items.type == 'menu' and items.links %}
+                            {% for links in items.links %}
+                            <li><a href="{{links.url}}">{{links.title}}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+          {% if social or phone or email or address %}
+            <div class="column col-lg-3 col-md-4 col-sm-6 col-12 flex-grow-1">
+                <div class="fontStyle7 foot-click">Contact Info <span></span></div>
+                <div class="footer-shw mt-lg-3">
+                    {% if social %}
+                        <div class="social-main">
+                            <div class="social d-flex gap-3 fontStyle4 mt-2">
+                                {% for item in social %}
+                                    <div><a href="{{ item.href }}" target="_blank">{{ item.icon }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                <ul class="d-flex foot-info-ul mt-3">
+
+                    {% if phone %}
+                        {% for i, item in site.phone %}
+                            {% if Property.phone.value[i] != 'no' %}
+                                <li class="foot-info-li">
+                                    <div class="media-icon">
+                                        <svg class="svg-icon" style="width: 1.5rem; height: 1.5rem;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M609.6 918.4c-6.4 0-12.8-4.8-16-11.2l-1.6-3.2c-3.2-8 1.6-17.6 9.6-20.8 4.8-1.6 11.2 0 16 3.2 118.4-4.8 212.8-100.8 214.4-219.2V406.4c-1.6-174.4-145.6-316.8-320-318.4h-3.2c-174.4 1.6-316.8 144-316.8 318.4v129.6c0 9.6-6.4 16-16 16s-16-6.4-16-16v-129.6c0-192 156.8-350.4 348.8-350.4h3.2c192 1.6 350.4 158.4 352 350.4v260.8c-1.6 139.2-115.2 251.2-254.4 251.2z" fill="" /><path d="M225.6 712h-4.8c-33.6 0-62.4-27.2-62.4-60.8V470.4c0-33.6 27.2-62.4 62.4-62.4h4.8c33.6 0 62.4 27.2 62.4 62.4v180.8c0 33.6-27.2 60.8-62.4 60.8z m-3.2-272c-16 0-30.4 12.8-30.4 30.4v180.8c0 16 12.8 28.8 30.4 28.8h4.8c16 0 30.4-12.8 30.4-28.8V470.4c0-16-12.8-30.4-30.4-30.4h-4.8z" fill="" /><path d="M176 641.6c-1.6 0-4.8 0-6.4-1.6l-64-30.4c-6.4-3.2-9.6-8-9.6-14.4V496c0-6.4 4.8-12.8 11.2-16l64-20.8c4.8-1.6 9.6 0 14.4 1.6 4.8 3.2 6.4 8 6.4 12.8v148.8c0 4.8-3.2 11.2-8 12.8-1.6 4.8-4.8 6.4-8 6.4z m-48-56l32 14.4v-102.4l-32 9.6v78.4zM848 641.6c-3.2 0-6.4-1.6-8-3.2-4.8-3.2-8-8-8-12.8v-148.8c0-4.8 3.2-9.6 6.4-12.8s9.6-3.2 14.4-1.6l64 20.8c6.4 1.6 11.2 8 11.2 16v97.6c0 6.4-3.2 11.2-9.6 14.4l-64 30.4c-1.6-1.6-4.8 0-6.4 0z m16-144v102.4l32-14.4v-76.8l-32-11.2z m48 97.6z" fill="" /><path d="M803.2 712h-4.8c-33.6 0-60.8-27.2-60.8-60.8V470.4c0-33.6 27.2-62.4 60.8-62.4h4.8c33.6 0 60.8 27.2 60.8 62.4v180.8c0 33.6-27.2 60.8-60.8 60.8z m-6.4-272c-16 0-28.8 12.8-28.8 30.4v180.8c0 16 12.8 28.8 28.8 28.8h4.8c16 0 28.8-12.8 28.8-28.8V470.4c0-16-12.8-30.4-28.8-30.4h-4.8zM558.4 960c-38.4 0-68.8-24-68.8-54.4s30.4-54.4 68.8-54.4 68.8 24 68.8 54.4-30.4 54.4-68.8 54.4z m0-78.4c-19.2 0-36.8 11.2-36.8 22.4s17.6 22.4 36.8 22.4 36.8-11.2 36.8-22.4-17.6-22.4-36.8-22.4z" fill="" /></svg>
+                                    </div>
+                                    <a href="tel:{{ item.data }}" class="d-flex fontStyle7">
+                                        <span>{{ item.data }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if email %}
+                        {% for i, item in site.email %}
+                        {% if Property.email.value[i] != 'no' %}
+                                <li class="foot-info-li">
+                                <div class="media-icon">
+                                    <svg class="svg-icon" style="width: 1.5rem; height: 1.5rem;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                                    viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M290.13333333 457.38666667c-28.27733333 0-51.2 24.4512-51.2 54.61333333s22.92266667 54.61333333 51.2 54.61333333 51.2-24.4512 51.2-54.61333333-22.92266667-54.61333333-51.2-54.61333333z m221.86666667 0c-30.16213333 0-54.61333333 24.4512-54.61333333 54.61333333s24.4512 54.61333333 54.61333333 54.61333333 54.61333333-24.4512 54.61333333-54.61333333-24.4512-54.61333333-54.61333333-54.61333333z m0-382.29333334c-241.29706667 0-436.90666667 183.38346667-436.90666667 409.6 0 132.0992 66.70613333 249.5872 170.25813334 324.48746667-32.68266667 47.584-74.92906667 88.60053333-124.13333334 120.51626667C166.47466667 944.36693333 214.96106667 952.32 265.38666667 952.32c82.51306667 0 159.83146667-21.30133333 226.30613333-58.46826667 6.73173333 0.28906667 13.5008 0.44266667 20.30826667 0.44266667 241.29706667 0 436.90666667-183.38453333 436.90666666-409.6C948.90666667 258.4768 753.29706667 75.09333333 512 75.09333333z m0 764.58666667c-4.0448 0-8.07146667-0.06613333-12.0864-0.18133333-31.14133333 15.86453333-120.9056 54.20586667-261.14026667 54.20586666 0 0 62.46186667-56.2432 85.88693334-96.87786666 0.3936-0.68266667 0.83306667-1.32586667 1.30453333-1.9424C208.88426667 734.208 129.70666667 618.03733333 129.70666667 484.69333333c0-196.05333333 171.15946667-354.98666667 382.29333333-354.98666666s382.29333333 158.93333333 382.29333333 354.98773333C894.29333333 680.74666667 723.13386667 839.68 512 839.68z m218.45333333-382.29333333c-30.16106667 0-54.61333333 24.4512-54.61333333 54.61333333s24.45226667 54.61333333 54.61333333 54.61333333c30.16213333 0 54.61333333-24.4512 54.61333334-54.61333333s-24.4512-54.61333333-54.61333334-54.61333333z"  /></svg>
+                                </div>
+                                <a href="mailto:{{ item.data }}" class="d-flex fontStyle7">
+                                    <span>{{ item.data }}</span>
+                                </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if address %}
+                        {% for i, item in site.address %}
+                            {% if Property.address.value[i] != 'no' %}
+                                <li class="foot-info-li" style="display: none;">
+                                <div class="media-icon">
+                                    <svg width="2rem" height="2rem" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32z"/><path fill="#000000" d="M800 416a288 288 0 1 0-576 0c0 118.144 94.528 272.128 288 456.576C705.472 688.128 800 534.144 800 416zM512 960C277.312 746.688 160 565.312 160 416a352 352 0 0 1 704 0c0 149.312-117.312 330.688-352 544z"/><path fill="#000000" d="M512 512a96 96 0 1 0 0-192 96 96 0 0 0 0 192zm0 64a160 160 0 1 1 0-320 160 160 0 0 1 0 320z"/></svg>
+                                </div>
+                                <div class="address py-3">
+                                    <div class="fontStyle5 opacity1"> {{ item.data }}</div>
+                                </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </ul>
+                </div>
+            </div>
+          {% endif %}
+
+        </div>
+
+        {% if copyright or powered %}
+            <div class="foot-btm">
+            <div class="foot-btm-wrap">
+                {% if copyright %}<div class="fontStyle8 copyright">{{ copyright }}</div>{% endif %}
+                {% if powered %}<div class="power-by fontStyle8">{{ site.powered }}</div>{% endif %}
+                <div class="secured">
+                <figure>
+                    <img src="https://static.joonsite.com/storage/2989/media/powered.png" alt="">
+                </figure>
+                </div>
+            </div>
+            </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </footer>
+
+
+
+ <!-- Scroll to Top Start -->
+  <a class="scroll-to-top heartbeat" href="#">
+    <i class="fa-solid fa-arrow-up-long"></i>
+  </a>
+
+  <div class="mobileBar background2 fontStyle5 fw-bold">
+    <ul class="d-flex justify-content-between align-items-center">
+      <li class="fontStyle8 opacity1 active">
+        <a href="{{ root.url }}" class="active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+          </svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="fontStyle8 opacity1">
+        <a href="{{ root.url }}/cart" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>
+          <span>Cart</span>
+        </a>
+      </li>
+      <li class="fontStyle8 opacity1">
+        <a href="{{ root.url }}/signup" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+          </svg>
+          <span>Account</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <style>
+  
+    #{{section.id}} .see-xsm-logo img{height: 30px !important;object-fit: contain;}
+#{{section.id}} .see-sm-logo img{height: 35px !important;object-fit: contain;}
+#{{section.id}} .default-size img{height: 40px !important;object-fit: contain;}
+#{{section.id}} .see-medium-logo img{height: 40px !important;object-fit: contain;}
+#{{section.id}} .see-large-logo img{height: 60px !important;object-fit: contain;}
+#{{section.id}} .see-extra-large-logo img{height: 70px !important;object-fit: contain;}
+
+#{{section.id}} .see-xsm-logo{font-size: 0.8rem !important;}
+#{{section.id}} .see-sm-logo{font-size: 1.2rem !important;}
+#{{section.id}} .default-size{font-size: 1.4rem !important;}
+#{{section.id}} .see-medium-logo{font-size: 1.4rem !important;}
+#{{section.id}} .see-large-logo{font-size: 2rem !important;}
+#{{section.id}} .see-extra-large-logo{font-size: 2.4rem !important;}
+
+@media(max-width:512px){
+#{{section.id}} .see-sm-logo{font-size: 1rem !important;}
+#{{section.id}} .default-size{font-size: 1.2rem !important;}
+#{{section.id}} .see-medium-logo{font-size: 1.2rem !important;}
+#{{section.id}} .see-large-logo{font-size: 1.6rem !important;}
+#{{section.id}} .see-extra-large-logo{font-size: 2rem !important;}
+}
+    
+    @media(max-width:992px){
+    .Flogo {  width: 100%;margin-bottom:2rem}
+    }
+    @media(max-width:768px){
+      .Footer{padding-top:2rem}
+    	 .foot-click span {  width: 15px;  height: 2px;  background: var(--color6);  position: relative;  transition: o.4s ease-in-out;}
+        .foot-click span::before {  position: absolute;  content: "";  width: 2px;  height: 15px;  background: var(--color6);  top: -6px;
+        left: 7px;}
+      .foot-click.active span::before{content: none}
+      footer .foot-body .column .footer-shw li {  margin: 0.5rem 0;}
+    }
+  </style>
+
+  <script>
+
+
+    try{
+    var window_width;
+(window_width = $(window).width()) < 768 && $(".foot-click").on("click", (function () {
+  $(this).closest(".column").find(".footer-shw").animate({    height: "toggle"  })
+}))
+      /***
+      $(document).ready(function () {
+    $(function () {
+        $('.Footer .foot-click').click(function (e) {
+            e.preventDefault();
+            $('.Footer .foot-click').removeClass('active');
+            $(this).addClass('active');
+        });
+        });
+    });
+    
+    ***/
+
+
+    if ($(window).width() < 768) {
+  $(document).ready(function(){
+         $(".Footer").css({"margin-bottom": $('.mobileBar ').height()});
+         $(".Footer").css({"margin-bottom": $('.filter-btns').height()});
+        $(".Footer").css({"margin-bottom": $('.cart-btn').height()});
+    });
+ } 
+
+  /*--------------------------------
+	/* 	Scroll To Top
+	-------------------------------- */
+	function scrollToTop() {
+		var $scrollUp = $('.scroll-to-top'),
+			$lastScrollTop = 0,
+			$window = $(window);
+
+		$window.on('scroll', function () {
+			var topPos = $(this).scrollTop();
+			if (topPos > $lastScrollTop) {
+				$scrollUp.removeClass('show');
+			} else {
+				if ($window.scrollTop() > 200) {
+					$scrollUp.addClass('show');
+				} else {
+					$scrollUp.removeClass('show');
+				}
+			}
+			$lastScrollTop = topPos;
+		});
+
+		$scrollUp.on('click', function (evt) {
+			$('html, body').animate({
+				scrollTop: 0
+			}, 600);
+			evt.preventDefault();
+		});
+	}
+	scrollToTop();
+}catch(err) {
+  console.log(err.message);
+}
+  </script>

@@ -1,0 +1,89 @@
+<section class="banner overflow-hidden d-flex" id="{{section.id}}">
+  <div class="banner-main {{ section.colors ? section.colors : 'background2' }} col-12 flex-grow-1">
+
+    {% for key, item in listitem %}
+      <div class="ban-text position-relative" >
+        {% if item.item_media %}<img src="{{ item.item_media }}" alt="{{ item.item_media.alt }}">{% endif %}
+
+        {% if item.item_name or item.item_description or item.item_button %}
+          <div class="ban-text-main col-lg-5">
+            <div class="container">
+              {% if item.item_subtitle %}<div class="fontStyle7 mb-3 tracking-in-expand slide-title">{{ item.item_subtitle }}</div>{% endif %}
+              {% if item.item_name %}<div class="heading fontStyle1 text-focus-in">{{ item.item_name }}</div>{% endif %}
+
+              {% if item.item_button %}
+                <div class="comm-btn mt-3">
+                  {% for key, btn in item.item_button %}
+                    <a href="{{ btn.href }}" target="{{ btn.target }}" class="jw fontStyle5">
+                      <span>{{ btn.label }}</span>
+                      <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+  @media(min-width:992px){
+  .ban-text img{max-height:100vh}
+  .slick-slide img{height:auto}
+  }
+</style>
+
+  <script>
+  
+    $('#{{section.id}} .banner-main').slick({
+      fade:true,
+      pauseOnHover: false,
+      autoplay: {{ section.slider.desktopAutoplay?section.slider.desktopAutoplay:'true'}},
+      autoplaySpeed: {{ section.slider.desktopAutoplaySpeed?section.slider.desktopAutoplaySpeed:'2000'}},
+      slidesToShow: {{ section.slider.desktopSlidesToShow?section.slider.desktopSlidesToShow:'1'}},
+      slidesToScroll: {{ section.slider.desktopSlidesToScroll?section.slider.desktopSlidesToScroll:'1'}},
+      speed: {{ section.slider.desktopSlideSpeed?section.slider.desktopSlideSpeed:'300'}}, 
+      arrows: {{ section.slider.desktopArrows?section.slider.desktopArrows:'true'}},
+      dots: {{ section.slider.desktopDots?section.slider.desktopDots:'true'}},
+      infinite: {{ section.slider.desktopInfinite?section.slider.desktopInfinite:'true'}},
+
+  responsive: [
+    {
+        breakpoint: 992,
+        settings: {
+            autoplay: {{ section.slider.tabletAutoplay?section.slider.tabletAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.tabletAutoplaySpeed?section.slider.tabletAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.tabletSlidesToShow?section.slider.tabletSlidesToShow:'1'}},
+            slidesToScroll: {{ section.slider.tabletSlidesToScroll?section.slider.tabletSlidesToScroll:'1'}},
+            speed: {{ section.slider.tabletSlideSpeed?section.slider.tabletSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.tabletArrows?section.slider.tabletArrows:'true'}},
+            dots: {{ section.slider.tabletDots?section.slider.tabletDots:'true'}},
+            infinite: {{ section.slider.tabletInfinite?section.slider.tabletInfinite:'true'}},
+        }
+     },
+      {
+        breakpoint: 700,
+        settings: {
+          	autoplay: {{ section.slider.mobileAutoplay?section.slider.mobileAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.mobileAutoplaySpeed?section.slider.mobileAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.mobileSlidesToShow?section.slider.mobileSlidesToShow:'1'}},
+            slidesToScroll: {{ section.slider.mobileSlidesToScroll?section.slider.mobileSlidesToScroll:'1'}},
+            speed: {{ section.slider.mobileSlideSpeed?section.slider.mobileSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.mobileArrows?section.slider.mobileArrows:'true'}},
+            dots: {{ section.slider.mobileDots?section.slider.mobileDots:'true'}},
+            infinite: {{ section.slider.mobileInfinite?section.slider.mobileInfinite:'true'}},
+        }
+      }
+  ]
+});  
+  </script>
+
+

@@ -1,0 +1,79 @@
+<section class="faq padding-3 {{ section.colors ? section.colors }}" id="{{section.id}}">
+    <div class="container-fluid">
+      <div class="row flex-column">
+        {% if title or description %}
+            <div class="faq-top col-lg-6 m-auto text-center flex-grow-1 mb-4">
+                {% if title %}<div class="fontStyle2 com-title ">{{ title }}</div>{% endif %}
+                {% if description %}<div class="fontStyle5 mt-3">{{ description }}</div>{% endif %}
+            </div>
+        {% endif %}
+
+        {% if media or listitem %}
+            <div class="faqMain d-flex flex-wrap gap-5 mt-4">
+                {% if media %}
+                    <div class="col-lg-5 Faq-media flex-grow-1">
+                        <figure>
+                        <img src="{{ media }}" alt="{{ media.alt }}">
+                        </figure>
+                    </div>
+                {% endif %}
+
+                {% if listitem %}
+                    <div class="row faq-cont col-lg-4 flex-grow-1">
+                        {% for key, item in listitem %}
+                            <div class="wrapper">
+                                <div class="toggle fontStyle7" style="color: rgb(17, 17, 48);">{{ item.question }}<i class="fas icon fa-plus"></i>
+                                </div>
+                                <div class="content content_data fontStyle5" style="height: 0px;">
+                                    {{ item.answer }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
+      </div>
+    </div>
+</section> 
+
+
+  <script>
+    try {
+
+let toggles = $('#{{section.id}} .toggle');
+let contentDiv = $('#{{section.id}} .content');
+let icons = $('#{{section.id}} .icon');
+
+    for (let i = 0; i < toggles.length; i++) {
+      toggles[i].addEventListener("click", () => {
+        if (parseInt(contentDiv[i].style.height) != contentDiv[i].scrollHeight) {
+          contentDiv[i].style.height = contentDiv[i].scrollHeight + "px";
+          toggles[i].style.color = "#0084e9";
+          icons[i].classList.remove("fa-plus");
+          icons[i].classList.add("fa-minus");
+        } else {
+          contentDiv[i].style.height = "0px";
+          toggles[i].style.color = "#111130";
+          icons[i].classList.remove("fa-minus");
+          icons[i].classList.add("fa-plus");
+        }
+
+        for (let j = 0; j < contentDiv.length; j++) {
+          if (j !== i) {
+            contentDiv[j].style.height = 0;
+            toggles[j].style.color = "#111130";
+            icons[j].classList.remove("fa-minus");
+            icons[j].classList.add("fa-plus");
+          }
+        }
+      });
+    }
+}
+  catch(err) {
+    console.log(err.message);
+  }
+  </script>

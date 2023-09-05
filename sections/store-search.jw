@@ -1,0 +1,96 @@
+<section class="product-list product-feed padding-3">
+    <div class="container-fluid">
+      <div class="top-row d-flex flex-wrap justify-content-between mb-lg-5">
+        <div class="fontStyle3">Showing Result of "{{search.query}}"</div>
+      </div>
+      <div class="product-list">
+        
+        {% if filters %}
+          {% include 'components/product-filters.jw' ignore missing %} 
+        {% endif %}
+
+
+        <div class="product-over"></div>
+        <div class="product-data Proul">
+          <div class="proFIlt d-flex justify-content-between mb-3">
+            <div class="filter-main d-flex gap-3 fontStyle5 align-items-center opacity1">
+              <div class="sort-by font-para">Sort By:</div>
+              <select class="font-para filter-az">
+                <option value="a_to_z">Alphabetically, A to Z</option>
+                <option value="z_to_a">Alphabetically, Z to A</option>
+                <option value="low_to_high">Price, Low to High</option>
+                <option value="hight_to_low">Price, High to Low</option>
+                <option value="old_to_new">Date, Old to New</option>
+                <option value="new_to_old">Date, New To Old</option>
+              </select>
+            </div>
+            <div class="grid d-flex gap-3">
+              <div class="gridIcon filter-mob fontStyle7 opacity1">
+                <svg class="svg-icon" style="width: 1.7rem; height: 1.7rem;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M428.194 453.735V730.85h-60V473.591L232.996 291.696c-18.687-29.315-10.337-67.025 18.071-85.134a61 61 0 0 1 32.79-9.562h390.689c33.689 0 61 27.31 61 61a61 61 0 0 1-7.727 29.714l-121.618 185.26v354.83h-60V455.027l129.33-196.853c0.01-0.484-130.549-0.876-391.675-1.174-0.605 0.262 47.508 65.84 144.338 196.735zM660.333 478h110c16.568 0 30 13.431 30 30 0 16.569-13.432 30-30 30h-110c-16.569 0-30-13.431-30-30 0-16.569 13.431-30 30-30z m0 115h110c16.568 0 30 13.431 30 30 0 16.569-13.432 30-30 30h-110c-16.569 0-30-13.431-30-30 0-16.569 13.431-30 30-30z m0 105h110c16.568 0 30 13.431 30 30 0 16.569-13.432 30-30 30h-110c-16.569 0-30-13.431-30-30 0-16.569 13.431-30 30-30z"  /></svg>
+              </div>
+              <div class="gridIcon multi fontStyle7">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="width: 1.265625em; height: 1rem;vertical-align: middle;fill: currentColor;overflow: hidden;">
+                  <path d="m0 0h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m373.5 0h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m186.75 0h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m0 186.75h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m373.5 186.75h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m186.75 186.75h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m0 373.5h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m373.5 373.5h138.5v138.5h-138.5zm0 0"></path>
+                  <path d="m186.75 373.5h138.5v138.5h-138.5zm0 0"></path>
+                </svg>
+              </div>
+              <div class="gridIcon single fontStyle7">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" style="width: 1.265625em; height: 1rem;vertical-align: middle;fill: currentColor;overflow: hidden;">
+                  <path d="M0-0.3h113.3v142.5H0V-0.3z"></path>
+                  <path d="M149.3-0.3H512v142.5H149.3V-0.3z"></path>
+                  <path d="M0,184.6h113.3v142.5H0V184.6z"></path>
+                  <path d="M149.3,184.6H512v142.5H149.3V184.6z"></path>
+                  <path d="M0,369.5h113.3V512H0V369.5z"></path>
+                  <path d="M149.3,369.5H512V512H149.3V369.5z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {% if products | length > 0 %}
+            <div class="row Proul">
+              
+              {% if filters %}
+                {% include 'components/product-list.jw' ignore missing %} 
+              {% endif %}
+
+            </div>
+            {% else %}
+              <div class="top-box text-center py-4">
+                <div class="svg-cart mb-3">
+                    <svg height="100px" width="100px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                      viewBox="0 0 512 512"  xml:space="preserve">
+                      <style type="text/css">
+                      .st0{fill:var(--color1);}
+                      </style>
+                      <g>
+                      <path class="st0" d="M488.765,125.844l-40.089-33.043l-1.497-30.898H344.554c2.732,7.516,4.583,15.441,5.316,23.706h74.73
+                        l0.91,18.822l23.528,19.392H334.491V93.966c-0.007-43.36-35.142-78.487-78.487-78.502c-43.361,0.008-78.495,35.142-78.495,78.502
+                        c0,1.436,0,13.79,0,29.857H62.452l22.834-19.3l1.674-18.914h75.169c0.725-8.265,2.578-16.19,5.309-23.706H65.26l-2.724,30.813
+                        l-39.309,33.22l-0.316,5.047L0,496.536h512L488.765,125.844z M195.72,93.966c0.008-16.684,6.737-31.677,17.656-42.619
+                        c10.935-10.927,25.952-17.664,42.627-17.664c16.668,0,31.685,6.737,42.612,17.664c10.927,10.942,17.656,25.936,17.656,42.619
+                        v29.857H195.72C195.72,107.757,195.72,95.402,195.72,93.966z M25.233,472.83l20.89-333.203h131.386c0,26.561,0,56.425,0,65.322
+                        c-7.886,3.496-13.404,11.351-13.404,20.557c0,12.424,10.078,22.494,22.51,22.494c12.423,0,22.502-10.07,22.502-22.494
+                        c0-9.198-5.517-17.061-13.396-20.557c0-8.89,0-38.754,0-65.322h120.552v65.33c-7.871,3.496-13.381,11.352-13.381,20.55
+                        c0,12.424,10.062,22.494,22.486,22.494c12.44,0,22.51-10.07,22.51-22.494c0-9.198-5.509-17.061-13.396-20.557v-65.322h131.386
+                        l20.889,333.203H25.233z"/>
+                      <path class="st0" d="M286.693,61.903h-61.379l-0.764,0.625c-6.382,6.397-10.548,14.392-12.2,23.081h87.3
+                        c-1.644-8.689-5.819-16.691-12.216-23.096L286.693,61.903z"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="fontStyle2 sub mb-2">No product found!</div>
+                  <div class="para fontStyle5">Looks like you haven't added any products.</div>
+                </div>
+              {% endif %}
+        </div>
+      </div>
+    </div>
+</section>

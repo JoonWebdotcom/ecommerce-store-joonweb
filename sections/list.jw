@@ -1,0 +1,30 @@
+<section class="shipping padding-3 {{ section.colors ? section.colors : 'background2'}}" id="{{section.id}}" data-aos="fade-left">
+    <div class="container-fluid">
+        {% if listitem %}
+            <div class="row shipping-wrap sliDer {% if listitem | length < 4 %}justify-content-center{% endif %}">
+
+                {% for item in listitem %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="shipping-in d-flex gap-4 align-items-center">
+                            {% if item.item_media %}
+                                <figure class="">
+                                    <img src="{{ item.item_media }}" alt="{{ item.item_media.alt }}">
+                                </figure>
+                            {% endif %}
+
+                            {% if item.item_name or item.item_description %}
+                                <div class="shipp-cont">
+                                    {% if item.item_name %}<div class="fontStyle7 fw-bold">{{ item.item_name }}</div>{% endif %}
+                                    {% if item.item_description %}<div 
+                                        class="para fontStyle8 opacity1 mt-3">{{ item.item_description }}</div>{% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+               
+            </div>
+        {% endif %}
+    </div>
+</section>
+

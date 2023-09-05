@@ -1,0 +1,50 @@
+<section class="section-padding {{ section.colors ? section.colors }}" id="{{section.id}}">
+    <div class="container">
+      	{% if title or media or description %}
+          <div class="content">
+            {% if title %}<div class="fontStyle2 mg-1">{{ title }}</div>{% endif %}
+              
+              {% if media %}
+                <div class="about-media mg-1">
+                    <img src="{{ media }}" alt="{{ media.alt }}">
+                </div>
+              {% endif %}
+            
+            	{% if description %}<div class="content_data">{{ description }}</div>{% endif %}
+            
+              {% if button %}
+                <div class="about-button mg-2">
+                  	{% for key, btn in button %}
+                    	<a href="{{ btn.href }}" target="{{ btn.target }}" class="fontStyle5 {% if key == 0 %}primary-btn{% else %}secondary-btn {% endif %}">{{ btn.label }}</a>
+                  	{% endfor %}
+                    
+                </div>
+              {% endif %}
+            
+          </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+.content_data{width:100%;overflow-y:auto;}
+.content_data a{color:var(--color1);font:var(--fontStyle5);}
+.content_data p{margin-bottom:1rem;}
+.content_data p, .content_data span, .content_data li, .content_data td, .content_data th{font:var(--fontStyle5);}
+.content_data th{font-weight:bold;color:#000;}
+.content_data table, .content_data td, .content_data th{border:1px solid #bbb;border-collapse:collapse;}
+.content_data td, .content_data th{padding:0.7rem 1.4rem;}
+.content_data img{margin:1rem auto;width:100%;}
+.content_data h1{font:var(--fontStyle3);margin-bottom:1rem;}
+.content_data h2{font:var(--fontStyle4);margin-bottom:1rem;}
+.content_data h3{font:var(--fontStyle5);margin-bottom:1rem;}
+.content_data h4{font:var(--fontStyle5);margin-bottom:1rem;}
+.content_data h5{font:var(--fontStyle5);margin-bottom:1rem;}
+.content_data h6{font:var(--fontStyle5);margin-bottom:1rem;}
+
+.content_data h1 a, .content_data h2 a, .content_data h3 a, .content_data h4 a, .content_data h5 a, .content_data h6 a{font-size: inherit;}
+
+.content_data ul, .content_data ol{padding-left:2rem !important;}
+.content_data ul li{list-style: disc !important;}
+.content_data ol li{list-style-type: lower-alpha;}
+</style>

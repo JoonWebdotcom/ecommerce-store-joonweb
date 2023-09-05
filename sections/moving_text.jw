@@ -1,0 +1,66 @@
+<section class="padding-3 marquee {{ section.colors ? section.colors : 'background2'}}" id="{{section.id}}">
+    <div class="container-fluid">
+        {% if listitem %}
+            <div class="row marquee-wrap w-100 m-auto flex-nowrap {% if listitem | length < 4 %}justify-content-center{% endif %}">
+                {% for item in listitem %}
+                    <div class="col-lg-2 col-md-3 col-sm-6 col-12 mwdt">
+                        <div class="marquee-in fontStyle2">{{ item.item_name }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+  </section>
+
+   <script>
+
+try{
+
+$('#{{section.id}} .marquee-wrap').slick({
+  lazyLoad: 'ondemand',  
+  autoplay: {{ section.slider.desktopAutoplay?section.slider.desktopAutoplay:'true'}},
+  autoplaySpeed: {{ section.slider.desktopAutoplaySpeed?section.slider.desktopAutoplaySpeed:'2000'}},
+  slidesToShow: {{ section.slider.desktopSlidesToShow?section.slider.desktopSlidesToShow:'3'}},
+  slidesToScroll: {{ section.slider.desktopSlidesToScroll?section.slider.desktopSlidesToScroll:'1'}},
+  speed: {{ section.slider.desktopSlideSpeed?section.slider.desktopSlideSpeed:'300'}}, 
+  arrows: {{ section.slider.desktopArrows?section.slider.desktopArrows:'true'}},
+  dots: {{ section.slider.desktopDots?section.slider.desktopDots:'true'}},
+  infinite: {{ section.slider.desktopInfinite?section.slider.desktopInfinite:'true'}},
+
+  responsive: [
+       {
+        breakpoint: 992,
+        settings: {
+            autoplay: {{ section.slider.tabletAutoplay?section.slider.tabletAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.tabletAutoplaySpeed?section.slider.tabletAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.tabletSlidesToShow?section.slider.tabletSlidesToShow:'3'}},
+            slidesToScroll: {{ section.slider.tabletSlidesToScroll?section.slider.tabletSlidesToScroll:'1'}},
+            speed: {{ section.slider.tabletSlideSpeed?section.slider.tabletSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.tabletArrows?section.slider.tabletArrows:'true'}},
+            dots: {{ section.slider.tabletDots?section.slider.tabletDots:'true'}},
+            infinite: {{ section.slider.tabletInfinite?section.slider.tabletInfinite:'true'}},
+        }
+     },
+      {
+        breakpoint: 700,
+        settings: {
+          	autoplay: {{ section.slider.mobileAutoplay?section.slider.mobileAutoplay:'true'}},
+            autoplaySpeed: {{ section.slider.mobileAutoplaySpeed?section.slider.mobileAutoplaySpeed:'2000'}},
+            slidesToShow: {{ section.slider.mobileSlidesToShow?section.slider.mobileSlidesToShow:'2'}},
+            slidesToScroll: {{ section.slider.mobileSlidesToScroll?section.slider.mobileSlidesToScroll:'1'}},
+            speed: {{ section.slider.mobileSlideSpeed?section.slider.mobileSlideSpeed:'300'}}, 
+            arrows: {{ section.slider.mobileArrows?section.slider.mobileArrows:'true'}},
+            dots: {{ section.slider.mobileDots?section.slider.mobileDots:'true'}},
+            infinite: {{ section.slider.mobileInfinite?section.slider.mobileInfinite:'true'}},
+        }
+      }
+
+      ]
+});
+
+}
+catch(err) {
+  console.log(err.message);
+}
+
+</script>

@@ -1,0 +1,14 @@
+<section class="loginpage padding-3 {{ section.colors ? section.colors }}" id="{{section.id}}">
+  <div class="container-fluid">
+    <div class="row LoginData">
+      <div class="login-main mt-4 col-lg-6 m-auto fontStyle5 {{ section.colors ? section.colors: 'background2' }}">
+        {% if title %}<div class="fontStyle2 mb-4">{{ title }}</div>{% endif %}
+
+        {% if form %}
+          {{ form }}
+        {% endif %}
+        <div class="log-wrap fontStyle5 mt-3">have an account? <a href="{{ root.url }}/login">Login</a></div>
+      </div>
+    </div>
+  </div>
+</section>

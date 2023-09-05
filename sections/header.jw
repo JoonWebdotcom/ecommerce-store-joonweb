@@ -1,0 +1,329 @@
+{% set logo_size_classes = {
+    "xs": "see-xsm-logo",
+    "s": "see-sm-logo",
+    "m": "see-medium-logo",
+    "l": "see-large-logo",
+    "xl": "see-extra-large-logo"
+  } %}
+  
+{% set logo_class = logo_size_classes[Property.logo.size] ?? '' %}
+
+<header class="w-100 m-auto {% if current_url == root.url %}transparent{% endif %} {{ section.colors ? section.colors }}" id="{{section.id}}">
+  
+    {% if announcement or phone or email or social %}
+    <div class="header-top">
+      <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
+        {% if announcement %}<div class="deal fontStyle5 d-flex gap-1">{{ announcement }}</div>{% endif %}
+
+        {% if phone or email or social %}
+          <div class="header-info mob d-flex align-items-center gap-2 flex-wrap">
+            {% if phone or email %}
+              <div class="contact_info desk">
+                <ul class="fontStyle5 d-flex gap-2">
+                  {% if phone %}
+                    {% for i, item in site.phone %}
+                      {% if Property.phone.value[i] != 'no' %}
+                        <li>
+                          <a href="tel:{{ item.data }}" class="d-flex gap-1 align-items-center"><i
+                              class="fa-solid fa-square-phone"></i><span>{{ item.data }}</span></a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+
+                  {% if email %}
+                    {% for i, item in site.email %}
+                      {% if Property.email.value[i] != 'no' %}
+                        <li>
+                          <a href="mailto:{{ item.data }}" class="d-flex gap-1 align-items-center"><i
+                              class="fa-regular fa-envelope"></i><span>{{ item.data }}</span></a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if social %}
+                <ul class="social d-flex gap-3">
+                    {% for item in social %}
+                        <li><a href="{{ item.href }}" target="_blank">{{ item.icon }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  {% endif %}
+
+    {% if logo or title or social %}
+    <div class="header-wrap-main">
+      <div class="container-fluid">
+        <div class="header-wrap">
+          {% if social %}
+            <ul class="social mob d-flex gap-3 fontStyle6">
+              {% for item in social %}
+                <li><a href="{{ item.href }}" target="_blank">{{ item.icon }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="search-bar desk">
+            <div class="search-in d-flex">
+              <div class="search-close">
+                <svg class="svg-icon" style="width: 1.2rem; height: 1.2rem;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M547.84 512 1016.32 43.52c10.24-10.24 10.24-25.6 0-35.84-10.24-10.24-25.6-10.24-35.84 0L512 476.16 43.52 7.68c-10.24-10.24-25.6-10.24-35.84 0s-10.24 25.6 0 35.84L476.16 512 7.68 980.48c-10.24 10.24-10.24 25.6 0 35.84C12.8 1021.44 17.92 1024 25.6 1024s12.8-2.56 17.92-7.68L512 547.84l468.48 468.48c5.12 5.12 12.8 7.68 17.92 7.68s12.8-2.56 17.92-7.68c10.24-10.24 10.24-25.6 0-35.84L547.84 512z"  /></svg>
+              </div>
+              <form action="{{ root.url }}/search" method="get">
+                <div class="search-field fontStyle8 opacity"><input type="text" placeholder="What are you looking for?"
+                    name="q" class="input-search" required=""><button class="search-btn"
+                    type="submit"><span>search</span><i class="fa-solid fa-arrow-right-long"></i></button></div>
+              </form>
+            </div>
+          </div>
+
+          <div class="hamburger-menu">
+              <svg class="open" width="2.2rem" height="2.2rem" enable-background="new 0 0 1024 1024" viewBox="0 0 1024 1024" id="hamburger-menu"><rect width="416" height="30" x="304" y="497"></rect><rect width="416" height="30" x="304" y="337"></rect><rect width="416" height="30" x="304" y="657"></rect><path d="M794,879H230c-46.87,0-85-38.13-85-85V230c0-46.87,38.13-85,85-85h564c46.87,0,85,38.13,85,85v346h-30V230 c0-30.33-24.67-55-55-55H230c-30.33,0-55,24.67-55,55v564c0,30.33,24.67,55,55,55h564c30.33,0,55-24.67,55-55V640h30v154 C879,840.87,840.87,879,794,879z"></path></svg>
+          </div>
+
+          {% if logo or title %}
+            <div class="logo-main">
+              <a href="{{ root.url }}" class="d-flex gap-3">
+                {% if logo %}<figure class="logo see-extra-large-logo"><img src="{{ logo }}" alt="{{ logo.alt }}"></figure>{% endif %}
+                {% if title %}<div class="logo-tag fontStyle4 opacity" >{{ title }}</div>{% endif %}
+              </a>
+            </div>
+          {% endif %}
+
+          
+          <div class="contact-info">
+            <div class="login-listing search fontStyle5 opacity"><a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+              </a></div>
+            <div class="login-listing cart fontStyle5 opacity"><a href="{{ root.url }}/cart">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+              </svg>
+                <div class="cart-value">{{ session.cart.total_items ? session.cart.total_items:'0' }}</div>
+              </a></div>
+            <div class="login-listing login fontStyle5 opacity"><a href="{{ root.url }}/signup"><svg
+                  xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20"
+                  height="20" fill="currentcolor">
+                  <path
+                    d="m12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm-4,21.164v-.164c0-2.206,1.794-4,4-4s4,1.794,4,4v.164c-1.226.537-2.578.836-4,.836s-2.774-.299-4-.836Zm9.925-1.113c-.456-2.859-2.939-5.051-5.925-5.051s-5.468,2.192-5.925,5.051c-2.47-1.823-4.075-4.753-4.075-8.051C2,6.486,6.486,2,12,2s10,4.486,10,10c0,3.298-1.605,6.228-4.075,8.051Zm-5.925-15.051c-2.206,0-4,1.794-4,4s1.794,4,4,4,4-1.794,4-4-1.794-4-4-4Zm0,6c-1.103,0-2-.897-2-2s.897-2,2-2,2,.897,2,2-.897,2-2,2Z">
+                  </path>
+                </svg></a></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if section.navigation or social or logo or title or email or phone %}
+    <nav class="nav-bars padding-y3">
+      <div class="container-fluid">
+        <div class="overlay"> </div>
+        <div class="nav-bar">
+          <div class="NavWrap">
+            {% if logo or title %}
+            <div class="logo-main desk">
+              <a href="{{ root.url }}" class="d-flex gap-3">
+                {% if logo %}<figure class="logo {{logo_class ? logo_class : 'default-size'}}"><img src="{{ logo }}" alt="{{ logo.alt }}"></figure>{% endif %}
+                {% if title %}<div class="logo-tag fontStyle4 opacity" >{{ title }}</div>{% endif %}
+              </a>
+            </div>
+            {% endif %}
+
+            <div class="nav-in">
+
+                {% if logo %}
+                    <div class="mobile-cont">
+                        {% if logo %}
+                        <div class="logo-main"><a href="{{ root.url }}">
+                            <figure class="logo {{logo_class ? logo_class : 'default-size'}}">
+                                <img src="{{ logo }}" alt="{{ logo.alt }}"></figure>
+                        </a></div>
+                        {% endif %}
+                        <svg class="close" width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m7.53033 6.46967c-.29289-.29289-.76777-.29289-1.06066 0s-.29289.76777 0 1.06066l4.46963 4.46967-4.46963 4.4697c-.29289.2929-.29289.7677 0 1.0606s.76777.2929 1.06066 0l4.46967-4.4696 4.4697 4.4696c.2929.2929.7677.2929 1.0606 0s.2929-.7677 0-1.0606l-4.4696-4.4697 4.4696-4.46967c.2929-.29289.2929-.76777 0-1.06066s-.7677-.29289-1.0606 0l-4.4697 4.46963z" fill="#000000" fill-rule="evenodd"/></svg>
+                    </div>
+                {% endif %}
+
+              {% if section.navigation %}
+              <ul class="menu-links fontStyle5">
+                {% for navkey, menu in section.navigation %}
+                  <li>
+                    <div class="menu-in"><a href="{{ menu.link }}" class="menu-list ">{{ menu.label }}</a>
+                      {% if menu.children %}<span class="arrows"><i class="fa fa-angle-down"></i></span>{% endif %}</div>
+
+                      {% if menu.children %}
+                        <ul class="submenu">
+                          {% for subkey,submenu in menu.children %}
+                            <li>
+                              <div class="menu-in"><a href="{{submenu.link}}">{{submenu.label}}</a>
+                                {% if submenu.children %}<span class="arrows"><i class="fa fa-angle-down"></i></span>{% endif %}</div>
+                                {% if submenu.children %}
+                                  <ul class="submenu2">
+                                    {% for subkey2,submenu2 in submenu.children %}
+                                      <li>
+                                        <div class="menu-in"><a href="{{submenu2.link}}">{{submenu2.label}}</a></div>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+   
+            {% if email or phone or social %}
+            <div class="contact_info mobile">
+              <ul class="fontStyle5 d-lg-none">
+                {% if phone %}
+                  {% for i, item in site.phone %}
+                    {% if Property.phone.value[i] != 'no' %}
+                      <li>
+                        <a href="tel:{{ item.data }}" class="d-flex gap-1 align-items-center"><i
+                            class="fa-solid fa-square-phone"></i><span>{{ item.data }}</span></a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+
+                {% if email %}
+                  {% for i, item in site.email %}
+                    {% if Property.email.value[i] != 'no' %}
+                      <li>
+                        <a href="mailto:{{ item.data }}" class="d-flex gap-1 align-items-center"><i
+                            class="fa-regular fa-envelope"></i><span>{{ item.data }}</span></a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </ul>
+
+              {% if social %}
+                <ul class="social d-flex gap-3">
+                  {% for item in social %}
+                    <li><a href="{{ item.href }}" target="_blank">{{ item.icon }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+            </div>
+          {% endif %}
+
+            </div>
+
+            <div class="contact-info desk">
+              <div class="login-listing search fontStyle5 opacity"><a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                </a></div>
+              <div class="login-listing cart fontStyle5 opacity"><a href="{{ root.url }}/cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+                  <div class="cart-value">{{ session.cart.total_items ? session.cart.total_items:'0' }}</div>
+                </a></div>
+              <div class="login-listing login fontStyle5 opacity"><a href="{{ root.url }}/signup"><svg
+                    xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20"
+                    height="20" fill="currentcolor">
+                    <path
+                      d="m12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm-4,21.164v-.164c0-2.206,1.794-4,4-4s4,1.794,4,4v.164c-1.226.537-2.578.836-4,.836s-2.774-.299-4-.836Zm9.925-1.113c-.456-2.859-2.939-5.051-5.925-5.051s-5.468,2.192-5.925,5.051c-2.47-1.823-4.075-4.753-4.075-8.051C2,6.486,6.486,2,12,2s10,4.486,10,10c0,3.298-1.605,6.228-4.075,8.051Zm-5.925-15.051c-2.206,0-4,1.794-4,4s1.794,4,4,4,4-1.794,4-4-1.794-4-4-4Zm0,6c-1.103,0-2-.897-2-2s.897-2,2-2,2,.897,2,2-.897,2-2,2Z">
+                    </path>
+                  </svg></a></div>
+            </div>
+          </div>
+
+          <div class="search-bar desk">
+            <div class="search-in d-flex">
+              <div class="search-close">
+                <svg class="svg-icon" style="width: 1rem; height: 1rem;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M547.84 512 1016.32 43.52c10.24-10.24 10.24-25.6 0-35.84-10.24-10.24-25.6-10.24-35.84 0L512 476.16 43.52 7.68c-10.24-10.24-25.6-10.24-35.84 0s-10.24 25.6 0 35.84L476.16 512 7.68 980.48c-10.24 10.24-10.24 25.6 0 35.84C12.8 1021.44 17.92 1024 25.6 1024s12.8-2.56 17.92-7.68L512 547.84l468.48 468.48c5.12 5.12 12.8 7.68 17.92 7.68s12.8-2.56 17.92-7.68c10.24-10.24 10.24-25.6 0-35.84L547.84 512z"></path></svg>
+              </div>
+              <form action="{{ root.url }}/search" method="post">
+                <div class="search-field fontStyle5 opacity"><input type="text" placeholder="What are you looking for?"
+                     name="q" class="input-search" required=""><button class="search-btn" type="submit"><span>search</span><i class="fa-solid fa-magnifying-glass"></i></button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  {% endif %}
+  </header>
+
+
+  <style>
+.see-xsm-logo img{height: 30px !important;object-fit: contain;}
+.see-sm-logo img{height: 35px !important;object-fit: contain;}
+.default-size img{height: 40px !important;object-fit: contain;}
+.see-medium-logo img{height: 40px !important;object-fit: contain;}
+.see-large-logo img{height: 60px !important;object-fit: contain;}
+.see-extra-large-logo img{height: 70px !important;object-fit: contain;}
+
+.see-xsm-logo{font-size: 0.8rem !important;}
+.see-sm-logo{font-size: 1.2rem !important;}
+.default-size{font-size: 1.4rem !important;}
+.see-medium-logo{font-size: 1.4rem !important;}
+.see-large-logo{font-size: 2rem !important;}
+.see-extra-large-logo{font-size: 2.4rem !important;}
+
+@media(max-width:512px){
+.see-sm-logo{font-size: 1rem !important;}
+.default-size{font-size: 1.2rem !important;}
+.see-medium-logo{font-size: 1.2rem !important;}
+.see-large-logo{font-size: 1.6rem !important;}
+.see-extra-large-logo{font-size: 2rem !important;}
+}
+</style>
+
+<script>
+try{
+    $(document).ready(function(){
+  $(".hamburger-menu .open, .overlay, .close").click(function(){
+    $("header .nav-bar, .overlay").animate({width: "toggle"});
+  });
+});
+
+$(window).on('scroll', function () {
+  if ($(this).scrollTop() > 100) {
+    $('header').addClass('sticky');
+  } else {
+    $('header').removeClass('sticky');
+  }
+});
+
+/*****desk header search */
+$(document).ready(function(){
+  $(".login-listing.search a, header .search-close").click(function(){
+    $("header .search-bar.desk").animate({width: "toggle"});
+  });
+});
+
+/******Sub menu click hide show on mobile start******/
+var window_width;
+(window_width = $(window).width()) < 992 && $(".arrows").on("click", (function () {
+  $(this).closest("li").find(".submenu").animate({
+    height: "toggle"
+  })
+})),
+$(".menu-in .arrows").click((function () {
+  $(this).closest(".submenu li").find(".submenu2").slideToggle("slow")
+}));
+
+}catch(err) {
+  console.log(err.message);
+}
+</script>

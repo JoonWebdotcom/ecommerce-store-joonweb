@@ -1,0 +1,70 @@
+<section class="loginpage padding-3 {{ section.colors ? section.colors }}" id="{{section.id}}">
+  <div class="container-fluid">
+    <div class="row LoginData">
+      <div class="login-main mt-4 col-lg-6 m-auto fontStyle5 {{ section.colors ? section.colors:'background2' }}" id="loginForm">
+        {% if title %}
+          <div class="fontStyle2 mb-4">{{ title }}</div>
+        {% endif %}
+
+        {% if form %}
+          {{ form }}
+        {% endif %}
+        <div class="log-wrap fontStyle5 mt-3">Dont have an account? <a href="{{ root.url }}/signup">Signup</a></div>
+      </div>
+
+      <div id="forgetPassword" class="jw-login-main main_width_style m-auto main_password_div" style="display:none">
+        <div class="jw-login-cont mb-4">
+          <div class="title fontStyle3 text-center">RECOVER PASSWORD</div>
+          <div class="mt-2 font-para text-center">Please enter your email</div>
+        </div>
+        <ul id="" class="login-main">
+          <form class="jw_dynamic_form  forget_password_style " name="form_v_1">
+            <li class="dynamicField" data-input="email" data-mode="system">
+              <label>Email</label>
+              <input type="email" data-name="email" date-mode="system" data-input="email" class="jw_dynamic_input " 
+              tooltip="" placeholder="Enter Your Email" maxlength="100" errmsg="" required="">
+            </li>
+            <input type="hidden" class="_tx_" value="forget-password">
+            <li><input type="submit" class="see-button" value="Forget Password"></li>
+          </form>
+        </ul>
+        <div class="mt-2 font-para">Remember your password? <a href="javascript:forget_pwd();">Back to login</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .main_password_div{width:50%;}
+  @media(max-width:576px){
+    .main_password_div{width:100%;}
+  }
+</style>
+
+<script>
+  try {
+ 
+  function forget_pwd() {
+    const loginForm = $('#loginForm');
+    const loginHeading = $('#loginHeading');
+    const forgetPassword = $('#forgetPassword');
+    
+    if (loginForm.is(':visible')) {
+      loginHeading.fadeOut(200);
+      loginForm.fadeOut(200, () => {
+        forgetPassword.fadeIn(200);
+      });
+    } else {
+      forgetPassword.fadeOut(200, () => {
+        loginForm.fadeIn(200);
+        loginHeading.fadeIn(200);
+      });
+    }
+  }
+
+}
+catch(err) {
+  console.log(err.message);
+}
+</script>

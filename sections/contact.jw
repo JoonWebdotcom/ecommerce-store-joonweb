@@ -1,0 +1,116 @@
+
+
+  <section class="contact-us padding-3 {{ section.colors ? section.colors }}" id="{{section.id}}">
+    {% if map %}
+      <div class="top-row mb-5 d-flex gap-5 flex-wrap">
+        <div class="iframe flex-grow-1 col-12">
+        <iframe src="{{ map }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="container-fluid">
+      <div class="row contactWrapper">
+        <div class="col-lg-12 contactLeft">
+          {% if title %}
+          <div class="top-row">
+            <div class="fontStyle3">{{ title }}</div>
+          </div>
+          {% endif %}
+
+          {% if email or phone or address %}
+            <div class="ContactWrap flex-grow-1 col-12">
+              {% if phone %}
+                <ul class="contactInfo">
+                  <li class="">
+                    <div class="icon">
+                      <svg width="4rem" height="4rem" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.67988 8.112C4.75244 10.9967 5.22876 14.8579 7.79944 17.1877C10.3701 19.5175 14.2595 19.6128 16.9412 17.4118C19.623 15.2107 20.2879 11.3775 18.5041 8.40182C16.7203 5.42618 13.026 4.20607 9.82088 5.534C8.542 6.06385 7.44894 6.96099 6.67988 8.112Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.43889 9.18204C9.87889 8.71804 10.0389 8.58804 10.2219 8.52804C10.3527 8.4933 10.4901 8.49124 10.6219 8.52204C10.7939 8.57204 10.8389 8.61004 11.4029 9.17204C11.9029 9.66604 11.9479 9.71904 11.9949 9.81604C12.086 9.9857 12.1002 10.1862 12.0339 10.367C11.9849 10.504 11.9129 10.595 11.6129 10.897L11.4129 11.097C11.36 11.1499 11.3478 11.231 11.3829 11.297C11.8197 12.0406 12.4393 12.6602 13.1829 13.097C13.2684 13.1425 13.3734 13.1275 13.4429 13.06L13.6319 12.874C13.7477 12.7526 13.8706 12.6381 13.9999 12.531C14.2024 12.4073 14.4541 12.396 14.6669 12.501C14.7669 12.55 14.8059 12.582 15.3179 13.092C15.8449 13.617 15.8599 13.634 15.9179 13.754C16.028 13.9532 16.028 14.1949 15.9179 14.394C15.8609 14.506 15.8269 14.547 15.5299 14.85C15.3509 15.033 15.1829 15.202 15.1559 15.225C14.9113 15.4276 14.5975 15.5269 14.2809 15.502C13.7019 15.4493 13.1414 15.2705 12.6389 14.978C11.5255 14.3881 10.5776 13.5286 9.88189 12.478C9.73143 12.2584 9.59772 12.0277 9.48189 11.788C9.16868 11.2512 9.00694 10.6395 9.01389 10.018C9.03549 9.69304 9.18904 9.39101 9.43889 9.18204Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="contactData d-flex flex-column gap-1">
+                      <span class="fontStyle4 mb-3">Phone</span>
+                      {% for i, item in site.phone %}
+                        {% if Property.phone.value[i] != 'no' %}
+                          <a href="tel:{{ item.data }}" class="fontStyle7">{{ item.data }}</a>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </li>
+                </ul>
+              {% endif %}
+
+              {% if email %}
+                <ul class="contactInfo">
+                  <li class="">
+                    <div class="icon">
+                      <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Communication / Mail_Open">
+                        <path id="Vector" d="M4 10L10.1076 14.6122L10.1097 14.6139C10.7878 15.1112 11.1271 15.36 11.4988 15.4561C11.8272 15.5411 12.1725 15.5411 12.501 15.4561C12.8729 15.3599 13.2132 15.1104 13.8926 14.6122L20 10M19.8002 9.03944L14.2012 4.55657C13.506 3.99995 13.1581 3.72174 12.7715 3.61126C12.4304 3.51378 12.0692 3.50861 11.7255 3.59661C11.336 3.69634 10.9809 3.96473 10.2705 4.50188L4.26953 9.03967C3.8038 9.39184 3.57123 9.56804 3.40332 9.7906C3.2546 9.98772 3.14377 10.2107 3.07624 10.4482C3 10.7163 3 11.0083 3 11.5922V17.8001C3 18.9202 3 19.4805 3.21799 19.9083C3.40973 20.2847 3.71547 20.5904 4.0918 20.7822C4.5192 20.9999 5.07899 20.9999 6.19691 20.9999H17.8031C18.921 20.9999 19.48 20.9999 19.9074 20.7822C20.2837 20.5904 20.5905 20.2844 20.7822 19.9081C21 19.4807 21 18.9214 21 17.8035V11.5265C21 10.9693 21 10.689 20.9287 10.4301C20.8651 10.1992 20.7595 9.98161 20.619 9.78768C20.4604 9.56876 20.2409 9.39227 19.8002 9.03944Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        </svg>
+                    </div>
+                    <div class="contactData d-flex flex-column gap-1">
+                      <span class="fontStyle4 mb-3">Email</span>
+                      {% for i, item in site.email %}
+                        {% if Property.email.value[i] != 'no' %}
+                          <a href="mailto:{{ item.data }}" class="fontStyle7">{{ item.data }}</a>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </li>
+                </ul>
+              {% endif %}
+
+              {% if address %}
+              <ul class="contactInfo">
+                <li class="">
+                  <div class="icon">
+                    <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </div>
+                  <div class="contactData d-flex flex-column gap-1">
+                    <span class="fontStyle4 mb-3">Address</span>
+                    {% for i, item in site.address %}
+                        {% if Property.address.value[i] != 'no' %}
+                          <div class="fontStyle7">{{ item.data }}</div>
+                        {% endif %}
+                      {% endfor %}
+                      
+                  </div>
+                </li>
+              </ul>
+              {% endif %}
+
+            </div>
+          {% endif %}
+
+          {% if social %}
+            <div class="SocialData" style="display: none;">
+              <div class="fontStyle7">FOLLOW US</div>
+              <ul class="d-flex mt-3 gap-2">
+                {% for item in social %}
+                  <li class="fontStyle6">
+                    <div class="Contactsocial">
+                      <a href="{{ item.href }}" target="_blank">{{ item.icon }}</a>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+        {% if form %}
+          <div class="contactRight col-lg-12">
+            <ul class="fontStyle5 col-12">
+              {{ form }}
+            </ul>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </section>

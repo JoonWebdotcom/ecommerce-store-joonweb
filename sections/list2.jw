@@ -1,0 +1,18 @@
+<section class="welcome padding-3 {{ section.colors ? section.colors : ''}}" id="{{section.id}}"
+ data-aos="zoom-out-down" data-aos-delay="200">
+    <div class="container-fluid">
+        {% if listitem %}
+            <div class="row sale d-flex flex-nowrap overflow-auto pb-2">
+                {% for item in listitem %}
+                    <div class="col-lg-6 col-10">
+                        
+                        <figure>
+                            <img src="{{ item.item_media }}" alt="{{ item.item_media.alt }}">
+                        </figure>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+  </section>
