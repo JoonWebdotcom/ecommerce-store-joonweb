@@ -1,0 +1,37 @@
+{
+    "settings": [],
+    "rules": {
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "Timeless Elegance: A Collection of Exquisite Toys"
+        },
+        "subtitle": {
+            "label": "Subtitle",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "About us"
+        },
+        "description": {
+            "label": "Content Description",
+            "type": "simpleEditor",
+            "show": "yes",
+            "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia ducimus sunt, est voluptate velit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil officia ducimus sunt, est voluptate velit?"
+        },
+        "media": {
+            "label": "Media",
+            "type": "singlefile",
+            "show": "yes",
+            "default": "about.png"
+        },
+        "button": {
+          "label": "Action Button",
+          "type": "hrefbutton",
+          "show": "yes",
+          "default": [
+              "Shop Now"
+          ]
+      }
+    }
+  }
