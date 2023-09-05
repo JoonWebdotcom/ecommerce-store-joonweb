@@ -1,0 +1,397 @@
+{
+    "info": {
+        "name": "Eureka Toys",
+        "version": "1.0.1",
+        "type": "store",
+        "author": "JoonWeb",
+        "support_url": "https:\/\/dev.joonweb.com\/themes\/template-architecture",
+        "license": "free"
+    },
+    "default": {
+        "fontUnit": "rem",
+        "fontStyle": {
+            "fontStyle1": {
+                "label": "Heading 1",
+                "font-family": "K2D, sans-serif",
+                "font-size": "3.5",
+                "line-height": "120%",
+                "font-weight": "600"
+            },
+            "fontStyle2": {
+                "label": "Heading 2",
+                "font-family": "K2D, sans-serif",
+                "font-size": "2",
+                "line-height": "120%",
+                "font-weight": "500"
+            },
+            "fontStyle3": {
+                "label": "Heading 3",
+                "font-family": "K2D, sans-serif",
+                "font-size": "1.8",
+                "line-height": "110%",
+                "font-weight": "500"
+            },
+            "fontStyle4": {
+                "label": "Heading 4",
+                "font-family": "K2D, sans-serif",
+                "font-size": "1.3",
+                "line-height": "110%",
+                "font-weight": "500"
+            },
+            "fontStyle5": {
+                "label": "Heading 5",
+                "font-family": "Nunito, sans-serif",
+                "font-size": "1.1",
+                "line-height": "130%",
+                "font-weight": "500"
+            },
+            "fontStyle6": {
+                "label": "Heading 6",
+                "font-family": "K2D, sans-serif",
+                "font-size": "1.2",
+                "line-height": "120%",
+                "font-weight": "normal"
+            },
+            "fontStyle7": {
+                "label": "Paragraph 7",
+                "font-family": "Nunito, sans-serif",
+                "font-size": "1.1",
+                "line-height": "120%",
+                "font-weight": "normal"
+            },
+            "fontStyle8": {
+                "label": "Paragraph 8",
+                "font-family": "Nunito, sans-serif",
+                "font-size": ".9",
+                "line-height": "130%",
+                "font-weight": "500"
+            },
+            "fontStyle9": {
+                "label": "Paragraph 9",
+                "font-family": "Nunito, sans-serif",
+                "font-size": "0.7",
+                "line-height": "140%",
+                "font-weight": "500"
+            }
+        },
+        "colors": {
+            "color1": {
+                "label": "Main Color",
+                "value": "#ff6799"
+            },
+            "color2": {
+                "label": "Second Color",
+                "value": "#F6F8FA"
+            },
+            "color3": {
+                "label": "Third Color",
+                "value": "#4acdd5"
+            },
+            "color4": {
+                "label": "Background Color",
+                "value": "#fbd9f2"
+            },
+            "color5": {
+                "label": "Light Color",
+                "value": "#fff"
+            },
+            "color6": {
+                "label": "Dark Color",
+                "value": "#0c0c0c"
+            }
+        }
+    },
+    "presets": [
+        {
+            "label": "Default",
+            "set": {
+                "fontUnit": "rem",
+                "fontStyle": {
+                    "fontStyle1": {
+                        "label": "Heading 1",
+                        "font-family": "K2D, sans-serif",
+                        "font-size": "3.5",
+                        "line-height": "120%",
+                        "font-weight": "600"
+                    },
+                    "fontStyle2": {
+                        "label": "Heading 2",
+                        "font-family": "K2D, sans-serif",
+                        "font-size": "2",
+                        "line-height": "120%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle3": {
+                        "label": "Heading 3",
+                        "font-family": "K2D, sans-serif",
+                        "font-size": "1.8",
+                        "line-height": "110%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle4": {
+                        "label": "Heading 4",
+                        "font-family": "K2D, sans-serif",
+                        "font-size": "1.3",
+                        "line-height": "110%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle5": {
+                        "label": "Heading 5",
+                        "font-family": "Nunito, sans-serif",
+                        "font-size": "1.1",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle6": {
+                        "label": "Heading 6",
+                        "font-family": "K2D, sans-serif",
+                        "font-size": "1.2",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle7": {
+                        "label": "Paragraph 7",
+                        "font-family": "Nunito, sans-serif",
+                        "font-size": "1.1",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle8": {
+                        "label": "Paragraph 8",
+                        "font-family": "Nunito, sans-serif",
+                        "font-size": ".9",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle9": {
+                        "label": "Paragraph 9",
+                        "font-family": "Nunito, sans-serif",
+                        "font-size": "0.7",
+                        "line-height": "140%",
+                        "font-weight": "500"
+                    }
+                },
+                "colors": {
+                    "color1": {
+                        "label": "Main Color",
+                        "value": "#ff6799"
+                    },
+                    "color2": {
+                        "label": "Second Color",
+                        "value": "#F6F8FA"
+                    },
+                    "color3": {
+                        "label": "Third Color",
+                        "value": "#4acdd5"
+                    },
+                    "color4": {
+                        "label": "Background Color",
+                        "value": "#fbd9f2"
+                    },
+                    "color5": {
+                        "label": "Light Color",
+                        "value": "#fff"
+                    },
+                    "color6": {
+                        "label": "Dark Color",
+                        "value": "#0c0c0c"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Vibrant",
+            "set": {
+                "fontUnit": "rem",
+                "fontStyle": {
+                    "fontStyle1": {
+                        "label": "Heading 1",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "3.5",
+                        "line-height": "120%",
+                        "font-weight": "bold"
+                    },
+                    "fontStyle2": {
+                        "label": "Heading 2",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "2",
+                        "line-height": "120%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle3": {
+                        "label": "Heading 3",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.8",
+                        "line-height": "110%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle4": {
+                        "label": "Heading 4",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.3",
+                        "line-height": "120%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle5": {
+                        "label": "Heading 5",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "1",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle6": {
+                        "label": "Heading 6",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.5",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle7": {
+                        "label": "Paragraph 7",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "1.1",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle8": {
+                        "label": "Paragraph 8",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": ".9",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle9": {
+                        "label": "Paragraph 9",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "0.7",
+                        "line-height": "140%",
+                        "font-weight": "500"
+                    }
+                },
+                "colors": {
+                    "color1": {
+                        "label": "Main Color",
+                        "value": "#48cae4"
+                    },
+                    "color2": {
+                        "label": "Second Color",
+                        "value": "#c1eef7"
+                    },
+                    "color3": {
+                        "label": "Third Color",
+                        "value": "#0ba9f7"
+                    },
+                    "color4": {
+                        "label": "Background Color",
+                        "value": "#c3ebff"
+                    },
+                    "color5": {
+                        "label": "Light Color",
+                        "value": "#fff"
+                    },
+                    "color6": {
+                        "label": "Dark Color",
+                        "value": "#121212"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Warm",
+            "set": {
+                "fontUnit": "rem",
+                "fontStyle": {
+                    "fontStyle1": {
+                        "label": "Heading 1",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "3.5",
+                        "line-height": "120%",
+                        "font-weight": "bold"
+                    },
+                    "fontStyle2": {
+                        "label": "Heading 2",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "2",
+                        "line-height": "120%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle3": {
+                        "label": "Heading 3",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.8",
+                        "line-height": "110%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle4": {
+                        "label": "Heading 4",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.3",
+                        "line-height": "120%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle5": {
+                        "label": "Heading 5",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "1",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle6": {
+                        "label": "Heading 6",
+                        "font-family": "Quicksand, sans-serif",
+                        "font-size": "1.5",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle7": {
+                        "label": "Paragraph 7",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "1.1",
+                        "line-height": "120%",
+                        "font-weight": "normal"
+                    },
+                    "fontStyle8": {
+                        "label": "Paragraph 8",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": ".9",
+                        "line-height": "130%",
+                        "font-weight": "500"
+                    },
+                    "fontStyle9": {
+                        "label": "Paragraph 9",
+                        "font-family": "Josefin Sans, sans-serif",
+                        "font-size": "0.7",
+                        "line-height": "140%",
+                        "font-weight": "500"
+                    }
+                },
+                "colors": {
+                    "color1": {
+                        "label": "Main Color",
+                        "value": "#ffb300"
+                    },
+                    "color2": {
+                        "label": "Second Color",
+                        "value": "#f2d89a"
+                    },
+                    "color3": {
+                        "label": "Third Color",
+                        "value": "#ed7112"
+                    },
+                    "color4": {
+                        "label": "Background Color",
+                        "value": "#f7c9a6"
+                    },
+                    "color5": {
+                        "label": "Light Color",
+                        "value": "#fff"
+                    },
+                    "color6": {
+                        "label": "Dark Color",
+                        "value": "#141414"
+                    }
+                }
+            }
+        }
+    ]
+}

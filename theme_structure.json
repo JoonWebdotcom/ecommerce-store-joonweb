@@ -1,0 +1,247 @@
+{
+    "pages": {
+      "default":[
+          {
+              "name":"Home",
+              "sections": ["slider", "collection-feed", "catalogue", "about", "product-feed", "list"]
+          },
+          {
+            "name":"About",
+            "sections": ["welcome", "about", "product-feed", "list"]
+          },
+          {
+            "name":"Blog",
+            "type": "blog",
+            "sections": ["blog"]
+          },
+          {
+            "name":"Contact",
+            "sections": ["contact"]
+          }
+      ],
+      "presets":[
+         {
+            "label": "About",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["about", "list", "testimonials"]
+                    },
+                    {
+                        "label": "Professional",
+                        "sections": ["about", "faq"]
+                    }
+                ]
+       },
+      {
+            "label": "Blogs",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["blog"]
+                    }
+                ]
+       },
+       {
+            "label": "Collection",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["collection-feed"]
+                    }
+                ]
+       },
+      {
+            "label": "Contact",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["contact"]
+                    },
+                    {
+                        "label": "Classic",
+                        "sections": ["form3"]
+                    }
+                ]
+            },
+
+      {
+            "label": "FAQ",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["faq"]
+                    }
+                ]
+          },
+      {
+            "label": "Gallery",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["gallery"]
+                    },
+                    {
+                        "label": "Grid",
+                        "sections": ["gallery2"]
+                    }
+                ]
+          },
+       {
+            "label": "Popup",
+        	"type": "popup",
+            "options": [
+                    {
+                        "label": "Basic",
+                      	"type":"popup",
+                        "sections": ["popup"]
+                    }
+                ]
+          },
+        {
+            "label": "Privacy Policy",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["content"]
+                    }
+                ]
+          },
+        {
+            "label": "Shop",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["product-feed"]
+                    }
+                ]
+          },
+       {
+            "label": "Team",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["team"]
+                    }
+                ]
+          },
+      {
+            "label": "Testimonials",
+            "options": [
+                    {
+                        "label": "Basic",
+                        "sections": ["testimonials"]
+                    }
+                ]
+          },
+      {
+            "label": "Why Us",
+            "options": [
+                {
+                    "label": "Basic",
+                    "sections": ["about", "counter"]
+                },
+                {
+                    "label": "Classic",
+                    "sections": ["about5", "team", "list"]
+                }
+            ]
+        }
+      ]
+  },
+    "sections": {
+      "about":{
+          "label": "About",
+          "info": "Introduce yourself or your business to the world",
+          "sections":["about","about2","about3","about4","about5","about6","about7","about8","about9","about10","about11","about12","about13","about14","about15"]
+      },
+      
+      "blog-feed":{
+        "label": "Blog",
+        "info": "Choose a section and market your product",
+        "sections":["blog-feed"]
+    },
+      "breadcrumb":{
+        "label": "Breadcrumb",
+        "info": "Choose a section and market your product",
+        "sections":["breadcrumb"]
+    },
+      "columns":{
+        "label": "Columns",
+        "info": "Choose a section design to display your services, features or team",
+        "sections":["columns","columns2","columns3","columns4","columns5","columns6","columns7","columns8"]
+    },
+    "collection":{
+        "label": "Collection",
+        "info": "Choose a section and showcase your favourite category",
+        "sections":["collection-feed","collection-feed2"]
+    },
+      "contact":{
+        "label": "Contact",
+        "info": "Have a query? Get in Touch with us",
+        "sections":["contact","contact2"]
+    },
+      "counter":{
+        "label": "Counter",
+        "info": "Choose a section and showcase your statistics",
+        "sections":["counter"]
+    },
+      "faq":{
+        "label": "FAQ",
+       "info": "Have questions? here are some faq's",
+        "sections":["faq", "faq2"]
+    },
+    "form":{
+        "label": "Form",
+        "info": "Have a query? Get in Touch with us",
+        "sections":["subscribe","login","signup","form","form2","form3"]
+    },
+     "image":{
+        "label": "Image",
+        "info": "Choose a section design & customize your website look",
+        "sections":["image","image2","image3","image4","image5","image6","image7","image8"]
+    },
+    "list":{
+        "label": "List",
+        "info": "Choose a section design & customize your website look",
+        "sections":["list", "list2"]
+    },
+      "product-feed":{
+          "label": "Product",
+          "info": "Choose a section and market your product",
+          "sections":["product-feed","catalogue"]
+      },
+         "plans":{
+            "label": "Plans",
+            "sections":["plans"]
+        },
+    "slider":{
+        "label": "Slider",
+        "info": "Choose a section to display in slideshow",
+        "sections":["slider","slider2","slider3","slider4"]
+       },
+    "text":{
+        "label": "Text",
+        "info": "Choose a section design & customize your website look",
+        "sections":["content","text","text2","text3","text4"]
+    },
+     "video":{
+        "label": "Video",
+        "info": "Choose a section to embed a video",
+        "sections":["video","video2","video3","video4","video5"]
+       },
+    "welcome":{
+        "label": "Welcome",
+        "info": "Introduce your site in an amazing look",
+        "sections":["welcome","welcome2","welcome3","welcome4"]
+    },
+    "footer":{
+        "label": "Footer",
+        "sections":["footer"]
+    },
+    "header":{
+          "label": "Header",
+          "sections":["header"]
+      }
+    }
+  }
