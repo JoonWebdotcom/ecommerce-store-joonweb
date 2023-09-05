@@ -1,0 +1,93 @@
+<div class="filter-left">
+    <div class="filt-cls">
+      <svg class="cls" width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m7.53033 6.46967c-.29289-.29289-.76777-.29289-1.06066 0s-.29289.76777 0 1.06066l4.46963 4.46967-4.46963 4.4697c-.29289.2929-.29289.7677 0 1.0606s.76777.2929 1.06066 0l4.46967-4.4696 4.4697 4.4696c.2929.2929.7677.2929 1.0606 0s.2929-.7677 0-1.0606l-4.4696-4.4697 4.4696-4.46967c.2929-.29289.2929-.76777 0-1.06066s-.7677-.29289-1.0606 0l-4.4697 4.46963z" fill="#000000" fill-rule="evenodd"></path></svg>
+    </div>
+    <div class="filter-left-data">
+      <div class="pos-sticky">
+        {% if filters.stock %}
+            <div class="filter-top-click">
+            <span class="mob-click fw-bolder d-inline-flex fontStyle5">Availability <i class="fa-solid fa-plus"></i></span>
+            <div class="mob-click-show fontStyle5 opacity1">
+                <div class="instock">
+                <input type="checkbox" id="instock_check" name="filter_stock" class="jw_filter_changer" 
+                value="instock"><label for="instock_check" class="font-para">in stock ({{filters.stock.in}})</label>
+                </div>
+                <div class="instock">
+                <input type="checkbox" id="outstock_check" name="filter_stock" class="jw_filter_changer" 
+                value="outofstock"><label for="outstock_check" class="font-para">out of stock({{filters.stock.out}})</label>
+                </div>
+            </div>
+            </div>
+        {% endif %}
+
+        <div class="divider"></div>
+
+        {% if filters.price %}
+        <div class="wrapper-main">
+          <span class="price-range fw-bolder d-inline-flex fontStyle5">Price <i class="fa-solid fa-plus"></i></span>
+          <div class="price-main">
+            <div class="price-input pt-3 pb-4">
+              <div class="field">
+                <span class="font-para d-inline-block">Min</span>
+                <input type="number" class="input-min jw_filter_changer font-para" id="jw_filter_one">
+              </div>
+              <div class="separator">-</div>
+              <div class="field">
+                <span class="font-para d-inline-block">Max</span>
+                <input type="number" class="input-max jw_filter_changer font-para" id="jw_filter_two">
+              </div>
+            </div>
+            <div class="price-bottom">
+              <div class="slider">
+                <div class="progress"></div>
+              </div>
+              <div class="range-input">
+                <input type="range" class="range-min jw_filter_changer" 
+                min="{{filters.price.min}}" max="{{filters.price.max}}" value="{{filters.price.min}}" id="lower" step="1">
+                <input type="range" class="range-max jw_filter_changer" 
+                min="{{filters.price.min}}" max="{{filters.price.max}}" value="{{filters.price.max}}" id="upper" step="1">
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="divider"></div>
+        
+        {% if filters.options %}
+        {% for optionName, option in filters.options %}
+       
+         <div class="filter-top-click dropdown"  data-attribute="{{optionName}}">
+          <span class="mob-click fw-bolder d-inline-flex fontStyle5">{{optionName}} <i class="fa-solid fa-plus"></i></span>
+          <div class="mob-click-show fontStyle5 opacity1">
+           {% for i, optvalue in option %}
+              <div class="instock" data-value="{{optvalue}}">
+                <input type="checkbox" id="variant{{ i }}" name="{{optionName}}" class="jw_filter_changer" value="{{optvalue}}">
+                <label for="variant{{ i }}" class="font-para">{{optvalue}}</label>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+
+        <div class="divider"></div>
+
+        {% if filters.vendors %}
+            <div class="filter-top-click brand">
+            <span class="mob-click fw-bolder d-inline-flex fontStyle5">Brand <i class="fa-solid fa-plus"></i></span>
+            <div class="mob-click-show fontStyle5 opacity1" data-filter="vendor">
+                {% for key, vendor in filters.vendors %}
+                    <div class="instock">
+                        <input type="checkbox" id="brand_ring{{ key }}" name="vendor" class="jw_filter_changer"
+                        data-vendor="{{vendor.handle}}" value="{{vendor.handle}}">
+                        <label for="brand_ring{{ key }}" class="font-para">{{ vendor.title }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        {% endif %}
+      </div>
+    </div>
+    
+  </div>

@@ -1,0 +1,242 @@
+<div class="main_section_1 space mt-5">
+    <div class="row gy-4">
+        <div class="col-sm-6 col-12 mb-4">
+          <div class="product-review">
+            <div class="review-header">
+              <h6 class="fontStyle3">Product Ratings & Reviews</h6>
+              <div  class="fontStyle5">Your feedback is very important for us to improve quality of our products.</div>
+            </div>
+            <div class="overall-review row gy-4">
+              {% if review.total_ratings %}
+              <div class="col-6 col-sm-6 col-md-6 col-lg-4 d-flex flex-column justify-content-center">
+                <div class="overall-left">
+                  <h6 class="fontStyle1">{{ review.rating_avg }} <sup><span class="star-icon"><i class="fa fa-star"></i></span></sup></h6>
+                  <p class="wd-60">{{ review.total_ratings }} ratings, {{ review.total_reviews }} reviews</p>
+                </div>
+              </div>
+              
+              <div class="col-md-12 col-lg-8">
+                
+                <div class="overall-right">
+                  <div class="overall-item row">
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">Excellent</label></div>
+                    <div class="overall-content col-sm-8">
+                      <div class="progress" style="height: 8px;margin-top:-4px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ (review.rating5 / review.total_ratings)*100 }}%" 
+                        aria-valuenow="{{ review.rating5?((review.rating5 / review.total_ratings)*100):0 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">({{ review.rating5 }})</label></div>
+                  </div>
+                  <div class="overall-item row">
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">Very Good</label></div>
+                    <div class="overall-content col-sm-8">
+                      <div class="progress" style="height: 8px;margin-top:-4px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ (review.rating4 / review.total_ratings)*100 }}%" 
+                        aria-valuenow="{{ review.rating4?((review.rating4 / review.total_ratings)*100):0 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">({{ review.rating4 }})</label></div>
+                  </div>
+                  <div class="overall-item row">
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">Good</label></div>
+                    <div class="overall-content col-sm-8">
+                      <div class="progress" style="height: 8px;margin-top:-4px;">
+                        <div class="progress-bar bg-orange" role="progressbar" style="width: {{ (review.rating3 / review.total_ratings)*100 }}%" 
+                        aria-valuenow="{{ review.rating3?((review.rating3 / review.total_ratings)*100):0 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">({{ review.rating3 }})</label></div>
+                  </div>
+                  <div class="overall-item row">
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">Average</label></div>
+                    <div class="overall-content col-sm-8">
+                      <div class="progress" style="height: 8px;margin-top:-4px;">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ (review.rating2 / review.total_ratings)*100 }}%" 
+                        aria-valuenow="{{ review.rating2?((review.rating2 / review.total_ratings)*100):0 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">({{ review.rating2 }})</label></div>
+                  </div>
+                  <div class="overall-item row">
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">Poor</label></div>
+                    <div class="overall-content col-sm-8">
+                      <div class="progress" style="height: 8px;margin-top:-4px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (review.rating1 / review.total_ratings)*100 }}%" 
+                        aria-valuenow="{{ review.rating1?((review.rating1 / review.total_ratings)*100):0 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-2"><label for="" class="fontStyle6">({{ review.rating1}})</label></div>
+                  </div>
+
+                </div>
+                
+              </div>
+              {% endif %}
+
+
+              <div class="col-sm-12">
+                {% if user!= '' %}
+                <div class="review-form">
+                  <div class="review-form-header mb-2">
+                    <div class="fontStyle4">Write a Review</div>
+                    <div class="fontStyle5">Share your views on our product</div>
+                  </div>
+                  <div class="review-form-body">
+                    <a class="prime-color mb-4 fontStyle8 mg-2 rate-brn" href="javascript:void(0);" 
+                       onclick="window.intiatereview(`{{ product.hash }}`)">Rate Product</a>
+                    {{ review.form }}
+                  </div>
+                </div>
+                {% else %}
+              <div class="review-login-msg fontStyle8 mt-3">
+                    <a class="prime-color" href="{{root.url}}/login">Rate Product</a>
+                  </div>
+                  {% endif %}
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+        {% if review.items %}
+        <div class="col-sm-6">
+          <div class="user-review">
+            {% set dataLimit = 4 %}
+                {% set dataTotal = review.items | length %}
+                {% set reviewpagination = review.items|paginate(dataLimit, (query.page ? query.page : 1)) %}
+            
+            {% for item in reviewpagination %}
+            <div class="user-review-item" data-hash="{{ item.hash }}">
+              <div class="user-header">
+                <i class="fa fa-user"></i> <span class="user-name">{{ item.author }}</span>
+              </div>
+              <div class="user-response">
+                <span class="user-star-badge bg-success fontStyle8">{{ item.rate_count }} <i class="fa fa-star"></i></span>
+                <span class="user-post-date fontStyle"><i class="fa fa-calendar"></i> {{ item.date }}</span>
+              </div>
+              <div class="user-body">
+                <h6 class="fontStyle4">{{ item.title }}</h6>
+                <p class="fontStyle5">{{ item.review }}</p>
+                <div class="my-2">
+                  {% if user.id == item.author_id %}
+                  <button class="badge bg-danger border-0" type="button" onclick="window.purge_review(`{{ product.hash }}`,`{{ item.hash }}`)"><i class="fa fa-trash"></i></button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+            {% import "components/pagination.jw" as pagination %}
+              {% set total_page =  ((dataTotal - 1) / dataLimit) + 1 %}
+              {{ pagination.pagination( total_page | ceil , ( query.page ?query.page : 1 )) }}
+            
+          </div>
+    </div>
+
+          {% endif %}
+  
+</div>
+</div>
+<style>
+        .review-login-msg a{padding:0.8rem 2rem; background:var(--color1); color:var(--color5);border:1px solid ; display:inline-block; transition:0.4s linear;} 
+  .review-login-msg a:hover{background:var(--color5); color:var(--color1);}
+
+  .review-form-body{padding:1rem 1rem 1rem 0;}
+  .submit_pro_review{padding:1rem 2.5rem; color:var(--color5); background:var(--color1);}
+  #review_form{background:var(--color2); padding:1rem; margin-top:2rem;}
+  .rate-brn{ background:var(--color4); color:var(--color5); padding:0.9rem 1.5rem; transition:0.4s linear;}
+  .rate-brn:hover{background:var(--color1); color:var(--color5);}
+  
+  .jw-btn{
+   border:none;
+    outline:none;
+    padding:0.8rem 2rem;
+    background:var(--color1);
+    color:var(--color5);
+    font-size:1rem;
+}
+  
+  .jw_rating_form{padding-left:0;}
+  
+.star-icon i{font-size:1.2rem;}
+.mg-1{margin-bottom:1rem;}
+.mg-2{margin-bottom:2rem;}
+.overall-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+.bg-orange{background: orange;}
+.overall-left{background:orange;padding:2rem 0;text-align:center;border-radius:1rem;
+color:#fff;}
+.wd-60{width:60%;margin:0 auto;}
+
+.review-form{margin-top:2rem;}
+
+.rating {display: inline-block;position: relative;}
+.rating .icon{font-size:2rem;margin-right:0.4rem;}
+.rating label {position: absolute;top: 0;left: 0;cursor: pointer;}
+.rating label:last-child {position: static;}
+.rating label:nth-child(1) {z-index: 5;}
+.rating label:nth-child(2) {z-index: 4;}
+.rating label:nth-child(3) {z-index: 3;}
+.rating label:nth-child(4) {z-index: 2;}
+.rating label:nth-child(5) {z-index: 1;}
+
+.rating label input {position: absolute;top: 0;left: 0;opacity: 0;}
+.rating label .icon {float: left;color: transparent;}
+.rating label:last-child .icon {color: #000;}
+.rating label input:checked ~ .icon, .rating:hover label:hover input ~ .icon {color: orange;}
+.rating label input:focus:not(:checked) ~ .icon:last-child {color: #000;text-shadow: 0 0 5px #09f;}
+.input-review, .input-review:focus{background:none;}
+
+.user-review{padding-right:0.6rem;}
+.user-review::-webkit-scrollbar{width:5px;}
+.user-review::-webkit-scrollbar-thumb{background:#198754;border-radius:5px;}
+.user-review::-webkit-scrollbar-track{background:#ddd;}
+.user-review-item{background:#eee;padding:0.8rem 1rem;margin-bottom:1rem;}
+.user-header{border-bottom:1px solid #ddd;padding-bottom:0.6rem;}
+.user-header i{background:#bbb;border-radius:50%;height:30px;width:30px;text-align:center;padding:0.5rem 0;
+margin-right:0.5rem;color:#fff;}
+
+.user-response{padding:1rem 0;display:flex;justify-content:space-between;}
+.user-star-badge{color:#fff;padding:0.4rem 0.7rem;border-radius:30px;}
+.user-star-badge i{margin-left:0.3rem;}
+.user-post-date i{margin-right:0.3rem;}
+
+@media(max-width:768px){.user-review{max-height:90vh;}}
+@media(max-width: 512px){.user-review{max-height: unset; } .review-form-body{padding:1rem 0rem 1rem 0;}}
+  
+  .rating_stars{
+    margin-bottom:1rem;
+  }
+  .rating_star::before{
+  font-family: FontAwesome;
+    content:'\f005';font-size:20px;
+    color: #dedede;
+  }
+  .jw_rating_form input, .jw_rating_form textarea{margin-bottom:1rem;}
+   .selected::before {color: #ffc107;}
+  
+  .jw_dynamic_input label{margin-bottom:0.5rem;}
+
+</style>
+
+<script>
+function intiatereview(){
+$('#review_form').toggle('slow');
+}
+  
+  $('.jw_rating_form').addClass('mb-4');
+  $('.jw_rating_form label').addClass('d-block');
+  $('.jw_rating_form input').addClass('form-control');
+  $('.jw_rating_form textarea').addClass('form-control');
+  $('.jw_rating_form button').addClass('jw-btn prime-color mt-2');
+  
+  window.rate_product = function(e){
+    var onStar = parseInt($(e).data('rating'), 10);
+    var stars = $(e).parent().children('.rating_star');
+    for (i = 0; i < stars.length; i++) { $(stars[i]).removeClass('selected');  }
+    for (i = 0; i < onStar; i++) {  $(stars[i]).addClass('selected');    }
+    var ratingValue = parseInt($(e).parent().find('.rating_star.selected').last().attr('data-rating'), 10);
+    $(e).closest('form').find(`input[name='pro_review[ratings]']`).val(ratingValue);
+  }
+  
+</script>
