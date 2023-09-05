@@ -1,0 +1,35 @@
+<section class="aboutUs padding-3 {{ section.colors ? section.colors }}" id="{{section.id}}">
+    <div class="container-fluid">
+      <div class="row aboutmain gap-5">
+        {% if media %}
+            <div class="col-lg-3 about-media flex-grow-1">
+            <figure> <img src="{{ media }}" alt="{{ media.alt }}"></figure>
+            </div>
+        {% endif %}
+
+        {% if title or subtitle or description or button %}
+            <div class="col-lg-6 aboutCont flex-grow-1">
+                {% if subtitle %}<div class="mb-2 fontStyle5">{{ subtitle }}</div>{% endif %}
+                {% if title %}<div class="fontStyle2 about-title">{{ title }}</div>{% endif %}
+                {% if description %}<div class="fontStyle5 content_data opacity1 mt-3">{{ description }}</div>{% endif %}
+            
+                {% if button %}
+                    <div class="comm-btn mt-3">
+                        {% for btn in button %}
+                            <a href="{{ btn.href }}" target="{{ btn.target }}" class="jw fontStyle5">
+                            <span>{{ btn.label }}</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endif %}
+
+      </div>
+    </div>
+</section>
