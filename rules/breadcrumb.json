@@ -1,0 +1,17 @@
+{
+    "settings": [],
+    "rules": {
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "{{ site.title }}"
+        },
+        "media": {
+            "label": "Media",
+            "type": "singlefile",
+            "show": "yes",
+            "default": "slider1.jpg"
+        }
+    }
+  }

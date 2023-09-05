@@ -1,0 +1,22 @@
+{
+    "settings": [],
+    "rules": {
+        "listitem": {
+            "fields": {
+                "item_media": {
+                    "label": "Item Media",
+                    "type": "singlefile",
+                    "show": "yes"
+                }
+            },
+            "default": [
+                {
+                    "item_media": "sale.jpg"
+                },
+                {
+                    "item_media": "sale1.jpg"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "settings": [],
+    "rules": {
+      "title": {
+        "label": "Title",
+        "type": "quickEditor",
+        "show": "yes",
+        "default": "Shopping Cart"
+      }
+    }
+  }

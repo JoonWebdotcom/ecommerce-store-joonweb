@@ -1,0 +1,17 @@
+{
+    "rules": {
+        "title": {
+            "show": "yes",
+            "type": "quickEditor",
+            "label": "Title",
+            "default": "Enter Your Title Here.."
+        },
+        "description": {
+            "show": "yes",
+            "type": "simpleEditor",
+            "label": "Description",
+            "default": "Enter Your Description Here.."
+        }
+    },
+    "settings": []
+}

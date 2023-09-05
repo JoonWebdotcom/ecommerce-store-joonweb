@@ -1,0 +1,17 @@
+{
+    "settings": [],
+    "rules": {
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "Signup"
+        },
+        "form": {
+            "label": "Form",
+            "type": "siteform",
+            "show": "yes",
+            "default": "signup"
+        }
+    }
+  }

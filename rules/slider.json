@@ -1,0 +1,628 @@
+{
+    "settings": [
+        {
+            "id": "slider",
+            "label": "Slider",
+            "type": "custom",
+            "elements": [
+                {
+                    "id": "heading1",
+                    "type": "heading",
+                    "label": "Desktop",
+                    "info": "Customize Slider Settings for desktop\/large devices",
+                    "default": ""
+                },
+                {
+                    "id": "desktopAutoplay",
+                    "label": "Autoplay",
+                    "info": "Autoplay your Slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "desktopAutoplaySpeed",
+                    "label": "Autoplay Slide Speed",
+                    "info": "Customize your Slides delay",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1000ms",
+                            "value": "1000"
+                        },
+                        {
+                            "label": "2000ms",
+                            "value": "2000"
+                        },
+                        {
+                            "label": "3000ms",
+                            "value": "3000"
+                        },
+                        {
+                            "label": "4000ms",
+                            "value": "4000"
+                        },
+                        {
+                            "label": "5000ms",
+                            "value": "5000"
+                        }
+                    ],
+                    "default": "3000"
+                },
+                {
+                    "id": "desktopSlidesToShow",
+                    "label": "Slides to Show",
+                    "info": "Customize number of Slides to show",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "4"
+                },
+                {
+                    "id": "desktopSlidesToScroll",
+                    "label": "Slides to Scroll",
+                    "info": "Customize number of Slides to scroll at once",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "1"
+                },
+                {
+                    "id": "desktopSlideSpeed",
+                    "label": "Slides Speed",
+                    "info": "Customize speed of sliding on click",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "100ms",
+                            "value": "100"
+                        },
+                        {
+                            "label": "200ms",
+                            "value": "200"
+                        },
+                        {
+                            "label": "300ms",
+                            "value": "300"
+                        },
+                        {
+                            "label": "400ms",
+                            "value": "400"
+                        },
+                        {
+                            "label": "500ms",
+                            "value": "500"
+                        }
+                    ],
+                    "default": "300"
+                },
+                {
+                    "id": "desktopArrows",
+                    "label": "Arrows",
+                    "info": "Turn on\/off slider arrows",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "desktopDots",
+                    "label": "Dots",
+                    "info": "Turn on\/off slider dots",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "desktopInfinite",
+                    "label": "Infinite Sliding",
+                    "info": "Turn on\/off infinite sliding of slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "heading2",
+                    "type": "heading",
+                    "label": "Tablet",
+                    "info": "Customize Slider Settings for tablet devices",
+                    "default": ""
+                },
+                {
+                    "id": "tabletAutoplay",
+                    "label": "Autoplay",
+                    "info": "Autoplay your Slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "tabletAutoplaySpeed",
+                    "label": "Autoplay Slide Speed",
+                    "info": "Customize your Slides delay",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1000ms",
+                            "value": "1000"
+                        },
+                        {
+                            "label": "2000ms",
+                            "value": "2000"
+                        },
+                        {
+                            "label": "3000ms",
+                            "value": "3000"
+                        },
+                        {
+                            "label": "4000ms",
+                            "value": "4000"
+                        },
+                        {
+                            "label": "5000ms",
+                            "value": "5000"
+                        }
+                    ],
+                    "default": "3000"
+                },
+                {
+                    "id": "tabletSlidesToShow",
+                    "label": "Slides to Show",
+                    "info": "Customize number of Slides to show",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "3"
+                },
+                {
+                    "id": "tabletSlidesToScroll",
+                    "label": "Slides to Scroll",
+                    "info": "Customize number of Slides to scroll at once",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "2"
+                },
+                {
+                    "id": "tabletSlideSpeed",
+                    "label": "Slides Speed",
+                    "info": "Customize speed of sliding on click",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "100ms",
+                            "value": "100"
+                        },
+                        {
+                            "label": "200ms",
+                            "value": "200"
+                        },
+                        {
+                            "label": "300ms",
+                            "value": "300"
+                        },
+                        {
+                            "label": "400ms",
+                            "value": "400"
+                        },
+                        {
+                            "label": "500ms",
+                            "value": "500"
+                        }
+                    ],
+                    "default": "300"
+                },
+                {
+                    "id": "tabletArrows",
+                    "label": "Arrows",
+                    "info": "Turn on\/off slider arrows",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "tabletDots",
+                    "label": "Dots",
+                    "info": "Turn on\/off slider dots",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "tabletInfinite",
+                    "label": "Infinite Sliding",
+                    "info": "Turn on\/off infinite sliding of slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "heading3",
+                    "type": "heading",
+                    "label": "Mobile",
+                    "info": "Customize Slider Settings for mobile devices",
+                    "default": ""
+                },
+                {
+                    "id": "mobileAutoplay",
+                    "label": "Autoplay",
+                    "info": "Autoplay your Slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "mobileAutoplaySpeed",
+                    "label": "Autoplay Slide Speed",
+                    "info": "Customize your Slides delay",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1000ms",
+                            "value": "1000"
+                        },
+                        {
+                            "label": "2000ms",
+                            "value": "2000"
+                        },
+                        {
+                            "label": "3000ms",
+                            "value": "3000"
+                        },
+                        {
+                            "label": "4000ms",
+                            "value": "4000"
+                        },
+                        {
+                            "label": "5000ms",
+                            "value": "5000"
+                        }
+                    ],
+                    "default": "3000"
+                },
+                {
+                    "id": "mobileSlidesToShow",
+                    "label": "Slides to Show",
+                    "info": "Customize number of Slides to show",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "1"
+                },
+                {
+                    "id": "mobileSlidesToScroll",
+                    "label": "Slides to Scroll",
+                    "info": "Customize number of Slides to scroll at once",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5",
+                            "value": "5"
+                        }
+                    ],
+                    "default": "1"
+                },
+                {
+                    "id": "mobileSlideSpeed",
+                    "label": "Slides Speed",
+                    "info": "Customize speed of sliding on click",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "100ms",
+                            "value": "100"
+                        },
+                        {
+                            "label": "200ms",
+                            "value": "200"
+                        },
+                        {
+                            "label": "300ms",
+                            "value": "300"
+                        },
+                        {
+                            "label": "400ms",
+                            "value": "400"
+                        },
+                        {
+                            "label": "500ms",
+                            "value": "500"
+                        }
+                    ],
+                    "default": "300"
+                },
+                {
+                    "id": "mobileArrows",
+                    "label": "Arrows",
+                    "info": "Turn on\/off slider arrows",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "mobileDots",
+                    "label": "Dots",
+                    "info": "Turn on\/off slider dots",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                },
+                {
+                    "id": "mobileInfinite",
+                    "label": "Infinite Sliding",
+                    "info": "Turn on\/off infinite sliding of slides",
+                    "type": "select",
+                    "options": [
+                        {
+                            "label": "True",
+                            "value": "true"
+                        },
+                        {
+                            "label": "False",
+                            "value": "false"
+                        }
+                    ],
+                    "default": "true"
+                }
+            ]
+        }
+    ],
+    "rules": {
+        "listitem": {
+            "fields": {
+                "item_name": {
+                    "label": "Item Title",
+                    "type": "quickEditor",
+                    "show": "yes"
+                },
+                "item_button": {
+                    "label": "Item Button",
+                    "type": "hrefbutton",
+                    "show": "yes"
+                },
+                "item_media": {
+                    "label": "Item Media",
+                    "type": "singlefile",
+                    "show": "yes"
+                },
+                "item_subtitle": {
+                    "label": "Item Subtitle",
+                    "type": "quickEditor",
+                    "show": "yes"
+                }
+            },
+            "default": [
+                {
+                    "item_name": "Everything are designed well",
+                    "item_subtitle": "Upto 40% off",
+                    "item_button": [
+                        "Shop Now"
+                    ],
+                    "item_media": "banner.jpg"
+                },
+                {
+                    "item_name": "Everything are designed well",
+                    "item_subtitle": "Upto 40% off",
+                    "item_button": [
+                        "Shop Now"
+                    ],
+                    "item_media": "banner1.jpg"
+                }
+            ]
+        }
+    }
+}

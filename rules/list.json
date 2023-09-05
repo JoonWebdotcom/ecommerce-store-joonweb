@@ -1,0 +1,42 @@
+{
+    "settings": [],
+    "rules": {
+        "listitem": {
+            "fields": {
+                "item_name": {
+                    "label": "Item Title",
+                    "type": "quickEditor",
+                    "show": "yes"
+                },
+                "item_media": {
+                    "label": "Item Media",
+                    "type": "singlefile",
+                    "show": "yes"
+                },
+                "item_description": {
+                    "label": "Item Subtitle",
+                    "type": "simpleEditor",
+                    "show": "yes"
+                }
+            },
+            "default": [
+                {
+                    "item_name": "Free Shipping",
+                    "item_media": "free-shipping.png",
+                    "item_description": "Just for you: FREE Shipping on your order!"
+                },
+                {
+                    "item_name": "Online Payment",
+                    "item_media": "payment-method.png",
+                    "item_description": "Gratefulness is a payment everyone can afford."
+                },
+                {
+                    "item_name": "24/7 Support",
+                    "item_media": "support.png",
+                    "item_description": "Customer Online Support."
+                }
+                
+            ]
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "collection",
+    "settings": [],
+    "rules":{
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "Top categories"
+          }
+    }
+}

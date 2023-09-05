@@ -1,0 +1,29 @@
+{
+    "settings": [],
+    "rules": {
+        "listitem": {
+            "fields": {
+                "item_name": {
+                    "label": "Item Title",
+                    "type": "quickEditor",
+                    "show": "yes"
+                }
+            },
+            "default": [
+                {
+                    "item_name": "★ Where Imagination Comes to Life!."
+                },
+                {
+                    "item_name": "★ Where Imagination Comes to Life!."
+                },
+                {
+                    "item_name": "★ Where Imagination Comes to Life!."
+                },
+                {
+                    "item_name": "★ Where Imagination Comes to Life!."
+                }
+                
+            ]
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "settings": [],
+    "rules": {
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "Login"
+        },
+        "form": {
+            "label": "Login Form",
+            "type": "siteform",
+            "show": "yes",
+            "default": "login"
+        }
+    }
+}

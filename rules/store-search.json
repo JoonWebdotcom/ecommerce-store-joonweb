@@ -1,0 +1,12 @@
+{
+    "type": "search",
+    "settings": [],
+    "rules": {
+        "limit": {
+            "label": "Limit per page",
+            "type": "number",
+            "show": "yes",
+            "default": "12"
+        }
+    }
+}

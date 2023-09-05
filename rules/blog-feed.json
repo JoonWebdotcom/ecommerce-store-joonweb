@@ -1,0 +1,13 @@
+{
+    "type": "BlogFeed",
+    "settings": [
+    ],
+    "rules": {
+        "title": {
+            "label": "Title",
+            "type": "quickEditor",
+            "show": "yes",
+            "default": "Lates Blog Post"
+        }
+    }
+}
